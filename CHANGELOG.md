@@ -14,4 +14,4 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
              
-[v1.0.1]: https://github.com/rinvex/cortex-pages/compare/v1.0.0...v1.0.1
+[v1.0.1]: https://github.com/rinvex/cortex-oauth/compare/v1.0.0...v1.0.1
