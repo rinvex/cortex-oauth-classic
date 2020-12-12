@@ -6,8 +6,8 @@ namespace Cortex\OAuth\DataTables\Adminarea;
 
 use Cortex\OAuth\Models\Client;
 use Illuminate\Database\Eloquent\Builder;
-use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\OAuth\Transformers\ClientTransformer;
+use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class ClientsDataTable extends AbstractDataTable
 {

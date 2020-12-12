@@ -6,8 +6,8 @@ namespace Cortex\OAuth\DataTables\Frontarea;
 
 use Cortex\OAuth\Models\AuthCode;
 use Cortex\OAuth\Scopes\ResourceUserScope;
-use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\OAuth\Transformers\AuthCodeTransformer;
+use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class AuthCodesDataTable extends AbstractDataTable
 {

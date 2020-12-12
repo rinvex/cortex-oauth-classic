@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Cortex\OAuth\DataTables\Adminarea;
 
 use Cortex\OAuth\Models\AuthCode;
-use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\OAuth\Transformers\AuthCodeTransformer;
+use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class AuthCodesDataTable extends AbstractDataTable
 {

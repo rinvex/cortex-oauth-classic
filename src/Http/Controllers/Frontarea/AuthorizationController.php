@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Http\Controllers\Frontarea;
 
+use Rinvex\OAuth\OAuth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Rinvex\OAuth\OAuth;
 use Rinvex\OAuth\Bridge\User;
 use Nyholm\Psr7\Response as Psr7Response;
 use Psr\Http\Message\ServerRequestInterface;

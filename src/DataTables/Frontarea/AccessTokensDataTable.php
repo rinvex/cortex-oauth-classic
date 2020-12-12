@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Cortex\OAuth\DataTables\Frontarea;
 
 use Cortex\OAuth\Models\AccessToken;
+use Illuminate\Database\Eloquent\Builder;
 use Cortex\OAuth\Scopes\ResourceUserScope;
 use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\OAuth\Transformers\AccessTokenTransformer;
-use Illuminate\Database\Eloquent\Builder;
 
 class AccessTokensDataTable extends AbstractDataTable
 {
