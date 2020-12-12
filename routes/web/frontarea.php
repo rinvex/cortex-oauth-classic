@@ -2,55 +2,6 @@
 
 declare(strict_types=1);
 
-
-Route::middleware(['web'])->get('oauth/redirect', function (\Illuminate\Http\Request $request) {
-    $request->session()->put('state', $state = \Str::random(40));
-
-    $query = http_build_query([
-        'client_id' => '49',
-        'redirect_uri' => 'http://cortex.rinvex.test/oauth/callback',
-        'response_type' => 'code',
-        'scope' => 'place-orders check-status',
-        'state' => $state,
-    ]);
-
-    return redirect('http://cortex.rinvex.test/oauth/authorize?'.$query);
-});
-
-Route::middleware(['web'])->get('oauth/callback', function (\Illuminate\Http\Request $request) {
-    $state = $request->session()->pull('state');
-
-    throw_unless(
-        strlen($state) > 0 && $state === $request->state,
-        InvalidArgumentException::class
-    );
-
-    //dd($request->code);
-    return redirect('http://cortex.rinvex.test/oauth/token?'.http_build_query([
-            'grant_type' => 'authorization_code',
-            'client_id' => '49',
-            'client_secret' => 'aoXY7wRqqpKxie6okrFNGZL4lDrlVYVieRy35ERK',
-            'redirect_uri' => 'http://cortex.rinvex.test/oauth/callback',
-            'code' => $request->code,
-        ]));
-
-    $http = new GuzzleHttp\Client;
-
-    $response = $http->post('http://cortex.rinvex.test/oauth/token', [
-        'form_params' => [
-            'grant_type' => 'authorization_code',
-            'client_id' => '48',
-            'client_secret' => 'aoXY7wRqqpKxie6okrFNGZL4lDrlVYVieRy35ERK',
-            'redirect_uri' => 'http://cortex.rinvex.test/callback',
-            'code' => $request->code,
-        ],
-    ]);
-
-    return json_decode((string) $response->getBody(), true);
-});
-
-
-
 Route::domain(domain())->group(function () {
     Route::name('frontarea.')
          ->middleware(['web', 'auth'])

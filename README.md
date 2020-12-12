@@ -15,6 +15,56 @@ This is a **[Rinvex Cortex](https://github.com/rinvex/cortex)** module, that's s
 
 To be documented soon..!
 
+### Example Usage
+
+```PHP
+Route::middleware(['web'])->get('adminarea/oauth/redirect', function (\Illuminate\Http\Request $request) {
+    $request->session()->put('state', $state = \Str::random(40));
+
+    $query = http_build_query([
+        'client_id' => '51',
+        'redirect_uri' => 'http://cortex.rinvex.test/adminarea/oauth/callback',
+        'response_type' => 'code',
+        'scope' => 'place-orders check-status',
+        'state' => $state,
+    ]);
+
+    return redirect('http://cortex.rinvex.test/adminarea/oauth/authorize?'.$query);
+});
+
+Route::middleware(['web'])->get('adminarea/oauth/callback', function (\Illuminate\Http\Request $request) {
+    $state = $request->session()->pull('state');
+
+    throw_unless(
+        strlen($state) > 0 && $state === $request->state,
+        InvalidArgumentException::class
+    );
+
+    //dd($request->code);
+    // For easy testing, we can temporary change `Route::post('token')` to `Route::get('token')`
+    //return redirect('http://cortex.rinvex.test/adminarea/oauth/token?'.http_build_query([
+    //        'grant_type' => 'authorization_code',
+    //        'client_id' => '51',
+    //        'client_secret' => 'bLGQa2fTqzVSonJvyT5CzHDD1JNEUevUm2esqVIy',
+    //        'redirect_uri' => 'http://cortex.rinvex.test/adminarea/oauth/callback',
+    //        'code' => $request->code,
+    //    ]));
+
+    $http = new GuzzleHttp\Client;
+
+    $response = $http->post('http://cortex.rinvex.test/oauth/token', [
+        'form_params' => [
+            'grant_type' => 'authorization_code',
+            'client_id' => '48',
+            'client_secret' => 'bLGQa2fTqzVSonJvyT5CzHDD1JNEUevUm2esqVIy',
+            'redirect_uri' => 'http://cortex.rinvex.test/callback',
+            'code' => $request->code,
+        ],
+    ]);
+
+    return json_decode((string) $response->getBody(), true);
+});
+```
 
 ## Changelog
 
