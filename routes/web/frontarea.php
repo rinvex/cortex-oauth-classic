@@ -66,7 +66,7 @@ Route::domain(domain())->group(function () {
                 Route::post('authorize')->name('authorizations.approve')->uses('AuthorizationController@approve');
                 Route::delete('authorize')->name('authorizations.deny')->uses('AuthorizationController@deny');
                 Route::get('scopes')->name('authorizations.scopes')->uses('AuthorizationController@scopes');
-                Route::get('token')->name('authorizations.token')->uses('AuthorizationController@issueToken');
+                Route::post('token')->name('authorizations.token')->uses('AuthorizationController@issueToken');
                 Route::post('token/refresh')->name('authorizations.token.refresh')->uses('AuthorizationController@refreshToken');
             });
 
