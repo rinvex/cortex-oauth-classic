@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Http\Controllers\Adminarea;
 
+use Rinvex\OAuth\OAuth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Rinvex\OAuth\OAuth;
 use Rinvex\OAuth\Bridge\User;
 use Nyholm\Psr7\Response as Psr7Response;
+use Cortex\OAuth\Traits\HandlesOAuthErrors;
 use Psr\Http\Message\ServerRequestInterface;
 use League\OAuth2\Server\AuthorizationServer;
-use Cortex\OAuth\Traits\HandlesOAuthErrors;
 use Cortex\OAuth\Traits\ConvertsPsrResponses;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Rinvex\OAuth\Factories\ApiTokenCookieFactory;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Providers;
 
-use Cortex\OAuth\Models\Tag;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Support\Traits\ConsoleTools;
@@ -44,10 +43,6 @@ class OAuthServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Bind eloquent models to IoC container
-        $this->app['config']['rinvex.oauth.models.tag'] === Tag::class
-        || $this->app->alias('rinvex.oauth.tag', Tag::class);
-
         // Register console commands
         $this->registerCommands($this->commands);
     }

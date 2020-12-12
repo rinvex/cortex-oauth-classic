@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Http\Controllers\Adminarea;
 
-use Cortex\OAuth\DataTables\Adminarea\AccessTokensDataTable;
 use Illuminate\Support\Str;
 use Cortex\Auth\Models\User;
 use Cortex\OAuth\Models\Client;
 use Cortex\OAuth\Scopes\ResourceUserScope;
 use Illuminate\Foundation\Http\FormRequest;
 use Cortex\OAuth\DataTables\Adminarea\ClientsDataTable;
-use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\OAuth\DataTables\Adminarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Adminarea\ClientFormRequest;
+use Cortex\Foundation\Http\Controllers\AuthorizedController;
+use Cortex\OAuth\DataTables\Adminarea\AccessTokensDataTable;
 use Cortex\OAuth\Http\Requests\Adminarea\ClientFormPostRequest;
 
 class ClientsController extends AuthorizedController

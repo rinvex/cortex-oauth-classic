@@ -6,7 +6,6 @@ namespace Cortex\OAuth\Http\Requests\Frontarea;
 
 use Rinvex\Support\Traits\Escaper;
 use Illuminate\Foundation\Http\FormRequest;
-use Cortex\Foundation\Exceptions\GenericException;
 
 class ClientFormRequest extends FormRequest
 {

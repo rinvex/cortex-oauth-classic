@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use Cortex\Auth\Models\Admin;
 use Cortex\Auth\Models\Member;
+use Cortex\OAuth\Models\Client;
 use Cortex\Auth\Models\Manager;
 use Rinvex\Menus\Models\MenuItem;
-use Cortex\OAuth\Models\Client;
 use Rinvex\Menus\Models\MenuGenerator;
 
 Menu::register('adminarea.sidebar', function (MenuGenerator $menu) {
