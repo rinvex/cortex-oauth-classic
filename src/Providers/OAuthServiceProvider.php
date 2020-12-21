@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Support\Traits\ConsoleTools;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Support\Facades\RateLimiter;
 use Cortex\OAuth\Console\Commands\SeedCommand;
 use Cortex\OAuth\Console\Commands\InstallCommand;
 use Cortex\OAuth\Console\Commands\MigrateCommand;
@@ -71,5 +74,23 @@ class OAuthServiceProvider extends ServiceProvider
             'access_token' => config('rinvex.oauth.models.access_token'),
             'refresh_token' => config('rinvex.oauth.models.refresh_token'),
         ]);
+
+        $this->configureRateLimiting();
+        $router->middlewareGroup('api', [
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ]);
+    }
+
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
+    {
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+        });
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\OAuth\Console\Commands;
 
 use Illuminate\Console\Command;
+use Cortex\OAuth\Database\Seeders\CortexOAuthSeeder;
 
 class SeedCommand extends Command
 {
@@ -31,7 +32,7 @@ class SeedCommand extends Command
     {
         $this->alert($this->description);
 
-        $this->call('db:seed', ['--class' => 'CortexTagsSeeder']);
+        $this->call('db:seed', ['--class' => CortexOAuthSeeder::class]);
 
         $this->line('');
     }
