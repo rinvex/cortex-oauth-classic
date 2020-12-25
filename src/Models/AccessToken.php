@@ -9,7 +9,6 @@ use Cortex\OAuth\Events\AccessTokenCreated;
 use Cortex\OAuth\Events\AccessTokenDeleted;
 use Cortex\OAuth\Events\AccessTokenUpdated;
 use Cortex\OAuth\Events\AccessTokenRestored;
-
 use Rinvex\OAuth\Models\AccessToken as BaseAccessToken;
 
 class AccessToken extends BaseAccessToken

@@ -9,8 +9,8 @@ use Illuminate\Foundation\Http\FormRequest;
 use Cortex\OAuth\DataTables\Frontarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest;
-use Cortex\Foundation\Http\Controllers\AuthenticatedController;
 use Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable;
+use Cortex\Foundation\Http\Controllers\AuthenticatedController;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormPostRequest;
 
 class ClientsController extends AuthenticatedController
@@ -19,7 +19,8 @@ class ClientsController extends AuthenticatedController
      * Get all of the clients for the authenticated user.
      *
      * @TODO: Add missing pusher to all needed datatables below.
-     * @param  \Cortex\OAuth\DataTables\Frontarea\ClientsDataTable $clientsDataTable
+     *
+     * @param \Cortex\OAuth\DataTables\Frontarea\ClientsDataTable $clientsDataTable
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
@@ -35,7 +36,7 @@ class ClientsController extends AuthenticatedController
     /**
      * Get all of the auth codes for the given client.
      *
-     * @param  \Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable $clientsDataTable
+     * @param \Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable $clientsDataTable
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
@@ -51,7 +52,7 @@ class ClientsController extends AuthenticatedController
     /**
      * Get all of the access tokens for the given client.
      *
-     * @param  \Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable $accessTokensDataTable
+     * @param \Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable $accessTokensDataTable
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
@@ -68,7 +69,7 @@ class ClientsController extends AuthenticatedController
      * Create new client.
      *
      * @param \Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest $request
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\OAuth\Models\Client                             $client
      *
      * @return \Illuminate\View\View
      */
@@ -81,7 +82,7 @@ class ClientsController extends AuthenticatedController
      * Edit given client.
      *
      * @param \Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest $request
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\OAuth\Models\Client                             $client
      *
      * @return \Illuminate\View\View
      */
@@ -94,7 +95,7 @@ class ClientsController extends AuthenticatedController
      * Show client create/edit form.
      *
      * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\OAuth\Models\Client             $client
      *
      * @return \Illuminate\View\View
      */
@@ -114,7 +115,7 @@ class ClientsController extends AuthenticatedController
      * Store new client.
      *
      * @param \Cortex\OAuth\Http\Requests\Frontarea\ClientFormPostRequest $request
-     * @param \Cortex\OAuth\Models\Client                             $client
+     * @param \Cortex\OAuth\Models\Client                                 $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -127,7 +128,7 @@ class ClientsController extends AuthenticatedController
      * Update given client.
      *
      * @param \Cortex\OAuth\Http\Requests\Frontarea\ClientFormPostRequest $request
-     * @param \Cortex\OAuth\Models\Client                             $client
+     * @param \Cortex\OAuth\Models\Client                                 $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -140,7 +141,7 @@ class ClientsController extends AuthenticatedController
      * Process stored/updated client.
      *
      * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client               $client
+     * @param \Cortex\OAuth\Models\Client             $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
@@ -156,7 +157,7 @@ class ClientsController extends AuthenticatedController
             'url' => route('frontarea.cortex.oauth.clients.index'),
             'with' => ['success' => $client->wasRecentlyCreated
                 ? trans('cortex/oauth::messages.client_created', ['identifier' => $client->getRouteKey(), 'secret_phrase' => $client->secret ? trans('cortex/oauth::messages.secret_phrase', ['secret' => $client->plainSecret]) : null])
-                : trans('cortex/oauth::messages.client_updated', ['identifier' => $client->getRouteKey()])
+                : trans('cortex/oauth::messages.client_updated', ['identifier' => $client->getRouteKey()]),
             ],
         ]);
     }
@@ -165,7 +166,7 @@ class ClientsController extends AuthenticatedController
      * Destroy given page.
      *
      * @param \Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest $request
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\OAuth\Models\Client                             $client
      *
      * @throws \Exception
      *
@@ -185,7 +186,7 @@ class ClientsController extends AuthenticatedController
      * Revoke given page.
      *
      * @param \Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest $request
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\OAuth\Models\Client                             $client
      *
      * @throws \Exception
      *

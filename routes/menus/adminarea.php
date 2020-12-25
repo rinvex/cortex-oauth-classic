@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Cortex\Auth\Models\Admin;
 use Cortex\Auth\Models\Member;
-use Cortex\OAuth\Models\Client;
 use Cortex\Auth\Models\Manager;
+use Cortex\OAuth\Models\Client;
 use Rinvex\Menus\Models\MenuItem;
 use Rinvex\Menus\Models\MenuGenerator;
 

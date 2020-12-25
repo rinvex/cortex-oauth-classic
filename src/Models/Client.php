@@ -8,12 +8,12 @@ use Cortex\OAuth\Events\ClientCreated;
 use Cortex\OAuth\Events\ClientDeleted;
 use Cortex\OAuth\Events\ClientUpdated;
 use Cortex\Foundation\Traits\Auditable;
+use Cortex\OAuth\Events\ClientRestored;
 use Rinvex\Support\Traits\HashidsTrait;
 use Rinvex\Support\Traits\HasTimezones;
-use Cortex\OAuth\Events\ClientRestored;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Activitylog\Traits\CausesActivity;
 use Rinvex\OAuth\Models\Client as BaseClient;
+use Spatie\Activitylog\Traits\CausesActivity;
 
 class Client extends BaseClient
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Transformers;
 
-use Rinvex\Support\Traits\Escaper;
 use Cortex\OAuth\Models\AuthCode;
+use Rinvex\Support\Traits\Escaper;
 use League\Fractal\TransformerAbstract;
 
 class AuthCodeTransformer extends TransformerAbstract
@@ -13,7 +13,7 @@ class AuthCodeTransformer extends TransformerAbstract
     use Escaper;
 
     /**
-     * List of resources to automatically include
+     * List of resources to automatically include.
      *
      * @var array
      */
@@ -43,7 +43,7 @@ class AuthCodeTransformer extends TransformerAbstract
     }
 
     /**
-     * Include Author
+     * Include Author.
      *
      * @param \Cortex\OAuth\Models\AuthCode $authCode
      *
@@ -57,7 +57,7 @@ class AuthCodeTransformer extends TransformerAbstract
     }
 
     /**
-     * Include Author
+     * Include Author.
      *
      * @param \Cortex\OAuth\Models\AuthCode $authCode
      *
@@ -68,6 +68,6 @@ class AuthCodeTransformer extends TransformerAbstract
         $user = $authCode->user;
         $transformer = '\Cortex\Auth\Transformers\\'.ucwords($authCode->provider).'Transformer';
 
-        return $this->item($user, new $transformer);
+        return $this->item($user, new $transformer());
     }
 }

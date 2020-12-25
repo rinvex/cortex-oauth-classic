@@ -9,7 +9,6 @@ use Cortex\OAuth\Events\RefreshTokenCreated;
 use Cortex\OAuth\Events\RefreshTokenDeleted;
 use Cortex\OAuth\Events\RefreshTokenUpdated;
 use Cortex\OAuth\Events\RefreshTokenRestored;
-
 use Rinvex\OAuth\Models\RefreshToken as BaseRefreshToken;
 
 class RefreshToken extends BaseRefreshToken

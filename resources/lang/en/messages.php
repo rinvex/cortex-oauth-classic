@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     'client_created' => 'Oauth Client [:identifier] Created successfully! :secret_phrase',
