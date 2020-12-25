@@ -13,7 +13,7 @@ class AccessTokenTransformer extends TransformerAbstract
     use Escaper;
 
     /**
-     * List of resources to automatically include
+     * List of resources to automatically include.
      *
      * @var array
      */
@@ -44,7 +44,7 @@ class AccessTokenTransformer extends TransformerAbstract
     }
 
     /**
-     * Include Author
+     * Include Author.
      *
      * @param \Cortex\OAuth\Models\AccessToken $accessToken
      *
@@ -58,7 +58,7 @@ class AccessTokenTransformer extends TransformerAbstract
     }
 
     /**
-     * Include Author
+     * Include Author.
      *
      * @param \Cortex\OAuth\Models\AccessToken $accessToken
      *
@@ -69,6 +69,6 @@ class AccessTokenTransformer extends TransformerAbstract
         $user = $accessToken->user;
         $transformer = '\Cortex\Auth\Transformers\\'.ucwords($accessToken->provider).'Transformer';
 
-        return $this->item($user, new $transformer);
+        return $this->item($user, new $transformer());
     }
 }

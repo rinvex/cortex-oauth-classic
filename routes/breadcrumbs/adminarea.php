@@ -6,8 +6,8 @@ use Cortex\Auth\Models\Admin;
 use Cortex\Auth\Models\Member;
 use Cortex\Auth\Models\Manager;
 use Cortex\OAuth\Models\Client;
-use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 
 Breadcrumbs::register('adminarea.cortex.auth.admins.clients', function (Generator $breadcrumbs, Admin $admin) {
     $breadcrumbs->parent('adminarea.cortex.auth.admins.index');

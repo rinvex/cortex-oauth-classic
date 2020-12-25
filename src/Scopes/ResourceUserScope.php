@@ -25,8 +25,8 @@ class ResourceUserScope implements DataTableScope
     /**
      * Create a new controller instance.
      *
-     * @param  int $userId
-     * @param  string $provider
+     * @param int    $userId
+     * @param string $provider
      */
     public function __construct(int $userId, string $provider)
     {

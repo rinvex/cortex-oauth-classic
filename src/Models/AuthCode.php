@@ -9,7 +9,6 @@ use Cortex\OAuth\Events\AuthCodeCreated;
 use Cortex\OAuth\Events\AuthCodeDeleted;
 use Cortex\OAuth\Events\AuthCodeUpdated;
 use Cortex\OAuth\Events\AuthCodeRestored;
-
 use Rinvex\OAuth\Models\AuthCode as BaseAuthCode;
 
 class AuthCode extends BaseAuthCode

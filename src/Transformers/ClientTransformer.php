@@ -13,12 +13,12 @@ class ClientTransformer extends TransformerAbstract
     use Escaper;
 
     /**
-     * List of resources to automatically include
+     * List of resources to automatically include.
      *
      * @var array
      */
     protected $defaultIncludes = [
-        'user'
+        'user',
     ];
 
     /**
@@ -44,7 +44,7 @@ class ClientTransformer extends TransformerAbstract
     }
 
     /**
-     * Include Author
+     * Include Author.
      *
      * @param \Cortex\OAuth\Models\Client $client
      *
@@ -55,6 +55,6 @@ class ClientTransformer extends TransformerAbstract
         $user = $client->user;
         $transformer = '\Cortex\Auth\Transformers\\'.ucwords($client->provider).'Transformer';
 
-        return $this->item($user, new $transformer);
+        return $this->item($user, new $transformer());
     }
 }
