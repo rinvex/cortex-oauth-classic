@@ -16,9 +16,9 @@ use Cortex\OAuth\Console\Commands\UnloadCommand;
 use Cortex\OAuth\Console\Commands\InstallCommand;
 use Cortex\OAuth\Console\Commands\MigrateCommand;
 use Cortex\OAuth\Console\Commands\PublishCommand;
-use Cortex\OAuth\Console\Commands\RollbackCommand;
 use Cortex\OAuth\Console\Commands\ActivateCommand;
 use Cortex\OAuth\Console\Commands\AutoloadCommand;
+use Cortex\OAuth\Console\Commands\RollbackCommand;
 use Cortex\OAuth\Console\Commands\DeactivateCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
