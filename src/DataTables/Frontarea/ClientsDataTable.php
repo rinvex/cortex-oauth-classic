@@ -7,8 +7,8 @@ namespace Cortex\OAuth\DataTables\Frontarea;
 use Cortex\OAuth\Models\Client;
 use Illuminate\Database\Eloquent\Builder;
 use Cortex\OAuth\Scopes\ResourceUserScope;
-use Cortex\Foundation\DataTables\AbstractDataTable;
 use Cortex\OAuth\Transformers\ClientTransformer;
+use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class ClientsDataTable extends AbstractDataTable
 {

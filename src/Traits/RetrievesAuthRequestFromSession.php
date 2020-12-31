@@ -14,10 +14,11 @@ trait RetrievesAuthRequestFromSession
     /**
      * Make sure the auth token matches the one in the session.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
+     * @param \Illuminate\Http\Request $request
      *
      * @throws \Rinvex\OAuth\Exceptions\InvalidAuthTokenException
+     *
+     * @return void
      */
     protected function assertValidAuthToken(Request $request)
     {
@@ -31,10 +32,11 @@ trait RetrievesAuthRequestFromSession
     /**
      * Get the authorization request from the session.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \League\OAuth2\Server\RequestTypes\AuthorizationRequest
+     * @param \Illuminate\Http\Request $request
      *
      * @throws \Exception
+     *
+     * @return \League\OAuth2\Server\RequestTypes\AuthorizationRequest
      */
     protected function getAuthRequestFromSession(Request $request)
     {

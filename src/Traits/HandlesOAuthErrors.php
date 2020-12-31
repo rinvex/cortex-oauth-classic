@@ -15,10 +15,11 @@ trait HandlesOAuthErrors
     /**
      * Perform the given callback with exception handling.
      *
-     * @param  \Closure  $callback
-     * @return mixed
+     * @param \Closure $callback
      *
      * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     *
+     * @return mixed
      */
     protected function withErrorHandling($callback)
     {
@@ -27,7 +28,7 @@ trait HandlesOAuthErrors
         } catch (LeagueException $e) {
             throw new OAuthServerException(
                 $e,
-                $this->convertResponse($e->generateHttpResponse(new Psr7Response))
+                $this->convertResponse($e->generateHttpResponse(new Psr7Response()))
             );
         }
     }

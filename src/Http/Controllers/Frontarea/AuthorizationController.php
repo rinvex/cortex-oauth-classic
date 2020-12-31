@@ -11,10 +11,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Rinvex\OAuth\Bridge\User;
 use Nyholm\Psr7\Response as Psr7Response;
-use Psr\Http\Message\ServerRequestInterface;
-use League\OAuth2\Server\AuthorizationServer;
 use Cortex\OAuth\Traits\HandlesOAuthErrors;
+use Psr\Http\Message\ServerRequestInterface;
 use Cortex\OAuth\Traits\ConvertsPsrResponses;
+use League\OAuth2\Server\AuthorizationServer;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Rinvex\OAuth\Factories\ApiTokenCookieFactory;
 use Cortex\OAuth\Traits\RetrievesAuthRequestFromSession;
@@ -43,8 +43,9 @@ class AuthorizationController extends AuthenticatedController
     /**
      * Create a new controller instance.
      *
-     * @param  \League\OAuth2\Server\AuthorizationServer  $server
-     * @param  \Illuminate\Contracts\Routing\ResponseFactory  $response
+     * @param \League\OAuth2\Server\AuthorizationServer     $server
+     * @param \Illuminate\Contracts\Routing\ResponseFactory $response
+     *
      * @return void
      */
     public function __construct(AuthorizationServer $server, ResponseFactory $response)
@@ -78,7 +79,7 @@ class AuthorizationController extends AuthenticatedController
     {
         return $this->withErrorHandling(function () use ($request) {
             return $this->convertResponse(
-                $this->server->respondToAccessTokenRequest($request, new Psr7Response)
+                $this->server->respondToAccessTokenRequest($request, new Psr7Response())
             );
         });
     }
@@ -86,8 +87,9 @@ class AuthorizationController extends AuthenticatedController
     /**
      * Authorize a client to access the user's account.
      *
-     * @param  \Psr\Http\Message\ServerRequestInterface  $psrRequest
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Psr\Http\Message\ServerRequestInterface $psrRequest
+     * @param \Illuminate\Http\Request                 $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function authorizeRequest(ServerRequestInterface $psrRequest, Request $request)
@@ -120,7 +122,8 @@ class AuthorizationController extends AuthenticatedController
     /**
      * Transform the authorization requests's scopes into Scope instances.
      *
-     * @param  \League\OAuth2\Server\RequestTypes\AuthorizationRequest  $authRequest
+     * @param \League\OAuth2\Server\RequestTypes\AuthorizationRequest $authRequest
+     *
      * @return array
      */
     protected function parseScopes($authRequest)
@@ -135,8 +138,9 @@ class AuthorizationController extends AuthenticatedController
     /**
      * Approve the authorization request.
      *
-     * @param  \League\OAuth2\Server\RequestTypes\AuthorizationRequest  $authRequest
-     * @param  \Illuminate\Database\Eloquent\Model  $user
+     * @param \League\OAuth2\Server\RequestTypes\AuthorizationRequest $authRequest
+     * @param \Illuminate\Database\Eloquent\Model                     $user
+     *
      * @return \Illuminate\Http\Response
      */
     protected function autoApproveRequest($authRequest, $user)
@@ -147,7 +151,7 @@ class AuthorizationController extends AuthenticatedController
 
         return $this->withErrorHandling(function () use ($authRequest) {
             return $this->convertResponse(
-                $this->server->completeAuthorizationRequest($authRequest, new Psr7Response)
+                $this->server->completeAuthorizationRequest($authRequest, new Psr7Response())
             );
         });
     }
@@ -155,7 +159,8 @@ class AuthorizationController extends AuthenticatedController
     /**
      * Approve the authorization request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function approve(Request $request)
@@ -165,14 +170,15 @@ class AuthorizationController extends AuthenticatedController
         $authRequest = $this->getAuthRequestFromSession($request);
 
         return $this->convertResponse(
-            $this->server->completeAuthorizationRequest($authRequest, new Psr7Response)
+            $this->server->completeAuthorizationRequest($authRequest, new Psr7Response())
         );
     }
 
     /**
      * Deny the authorization request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function deny(Request $request)
@@ -187,7 +193,7 @@ class AuthorizationController extends AuthenticatedController
             $uri = Arr::first($clientUris);
         }
 
-        $separator = $authRequest->getGrantTypeId() === 'implicit' ? '#' : (strstr($uri, '?') ? '&' : '?');
+        $separator = $authRequest->getGrantTypeId() === 'implicit' ? '#' : (mb_strstr($uri, '?') ? '&' : '?');
 
         return $this->response->redirectTo(
             $uri.$separator.'error=access_denied&state='.$request->input('state')
@@ -197,14 +203,16 @@ class AuthorizationController extends AuthenticatedController
     /**
      * Get a fresh transient token cookie for the authenticated user.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Rinvex\OAuth\Factories\ApiTokenCookieFactory  $cookieFactory
+     * @param \Illuminate\Http\Request                      $request
+     * @param \Rinvex\OAuth\Factories\ApiTokenCookieFactory $cookieFactory
+     *
      * @return \Illuminate\Http\Response
      */
     public function refreshToken(Request $request, ApiTokenCookieFactory $cookieFactory)
     {
         return (new Response('Refreshed.'))->withCookie($cookieFactory->make(
-            $request->user()->getAuthIdentifier(), $request->session()->token()
+            $request->user()->getAuthIdentifier(),
+            $request->session()->token()
         ));
     }
 }
