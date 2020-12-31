@@ -12,10 +12,14 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Facades\RateLimiter;
 use Cortex\OAuth\Console\Commands\SeedCommand;
+use Cortex\OAuth\Console\Commands\UnloadCommand;
 use Cortex\OAuth\Console\Commands\InstallCommand;
 use Cortex\OAuth\Console\Commands\MigrateCommand;
 use Cortex\OAuth\Console\Commands\PublishCommand;
 use Cortex\OAuth\Console\Commands\RollbackCommand;
+use Cortex\OAuth\Console\Commands\ActivateCommand;
+use Cortex\OAuth\Console\Commands\AutoloadCommand;
+use Cortex\OAuth\Console\Commands\DeactivateCommand;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class OAuthServiceProvider extends ServiceProvider
@@ -28,6 +32,11 @@ class OAuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
+        ActivateCommand::class => 'command.cortex.oauth.activate',
+        DeactivateCommand::class => 'command.cortex.oauth.deactivate',
+        AutoloadCommand::class => 'command.cortex.oauth.autoload',
+        UnloadCommand::class => 'command.cortex.oauth.unload',
+
         SeedCommand::class => 'command.cortex.oauth.seed',
         InstallCommand::class => 'command.cortex.oauth.install',
         MigrateCommand::class => 'command.cortex.oauth.migrate',
