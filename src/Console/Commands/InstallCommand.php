@@ -34,8 +34,5 @@ class InstallCommand extends Command
         $this->call('cortex:publish:oauth', ['--force' => $this->option('force'), '--resource' => $this->option('resource')]);
         $this->call('cortex:migrate:oauth', ['--force' => $this->option('force')]);
         $this->call('cortex:seed:oauth');
-
-        $this->call('cortex:autoload:oauth', ['--force' => $this->option('force')]);
-        $this->call('cortex:activate:oauth', ['--force' => $this->option('force')]);
     }
 }
