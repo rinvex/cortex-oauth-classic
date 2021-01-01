@@ -5,7 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
-## [v2.0.2] - 2020-12-29
+## [v2.0.3] - 2021-01-01
+- Move cortex:autoload & cortex:activate commands to cortex/foundation module responsibility
+    - This is because :autoload & :activate commands are registered only if the module already autoloaded, so there is no way we can execute commands of unloaded modules
+    - cortex/foundation module is always autoloaded, so it's the logical and reasonable place to register these :autoload & :activate module commands and control other modules from outside
+
+## [v2.0.2] - 2020-12-31
 - Rename seeders directory
 - Enable StyleCI risky mode
 - Add module activate, deactivate, autoload, unload artisan commands
@@ -27,6 +32,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
              
+[v2.0.3]: https://github.com/rinvex/cortex-oauth/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/rinvex/cortex-oauth/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/rinvex/cortex-oauth/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/rinvex/cortex-oauth/compare/v1.0.1...v2.0.0
