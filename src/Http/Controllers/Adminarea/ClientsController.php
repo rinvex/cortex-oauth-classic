@@ -163,7 +163,7 @@ class ClientsController extends AuthorizedController
      */
     protected function form(FormRequest $request, Client $client)
     {
-        if(! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->get('replicate'))){
+        if (! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->get('replicate'))) {
             $client = $replicated->replicate();
         }
 
