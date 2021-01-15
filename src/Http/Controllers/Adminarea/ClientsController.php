@@ -163,6 +163,10 @@ class ClientsController extends AuthorizedController
      */
     protected function form(FormRequest $request, Client $client)
     {
+        if (! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->get('replicate'))) {
+            $client = $replicated->replicate();
+        }
+
         $grantTypes = [
             'authorization_code' => trans('cortex/oauth::common.authorization_code'),
             'client_credentials' => trans('cortex/oauth::common.client_credentials'),

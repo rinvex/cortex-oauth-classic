@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.5] - 2021-01-15
+- Add model replication feature
+
 ## [v2.0.4] - 2021-01-02
 - Move cortex:autoload & cortex:activate commands to cortex/foundation module responsibility
 
@@ -34,7 +37,8 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 ## v1.0.0 - 2020-12-12
 - Tag first release
-             
+
+[v2.0.5]: https://github.com/rinvex/cortex-oauth/compare/v2.0.4...v2.0.5
 [v2.0.4]: https://github.com/rinvex/cortex-oauth/compare/v2.0.3...v2.0.4
 [v2.0.3]: https://github.com/rinvex/cortex-oauth/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/rinvex/cortex-oauth/compare/v2.0.1...v2.0.2
