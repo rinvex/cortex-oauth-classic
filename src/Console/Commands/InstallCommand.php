@@ -31,8 +31,16 @@ class InstallCommand extends Command
     {
         $this->alert($this->description);
 
-        $this->call('cortex:publish:oauth', ['--force' => $this->option('force'), '--resource' => $this->option('resource')]);
+        ! $this->option('resource') || $this->call('cortex:publish:oauth', ['--force' => $this->option('force'), '--resource' => $this->option('resource')]);
+
         $this->call('cortex:migrate:oauth', ['--force' => $this->option('force')]);
         $this->call('cortex:seed:oauth');
+
+        // Create the encryption keys needed to generate secure access tokens
+        $this->call('rinvex:oauth:keys', ['--force' => $this->option('force')]);
+
+        // Create "personal access" and "password grant" clients which will be used to generate access tokens
+        $this->call('rinvex:oauth:client', ['--personal_access' => true]);
+        $this->call('rinvex:oauth:client', ['--password' => true]);
     }
 }
