@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Transformers;
 
+use Illuminate\Support\Str;
 use Cortex\OAuth\Models\Client;
 use Rinvex\Support\Traits\Escaper;
 use League\Fractal\TransformerAbstract;
@@ -53,7 +54,7 @@ class ClientTransformer extends TransformerAbstract
     public function includeUser(Client $client)
     {
         $user = $client->user;
-        $transformer = '\Cortex\Auth\Transformers\\'.ucwords($client->provider).'Transformer';
+        $transformer = '\Cortex\Auth\Transformers\\'.ucwords(Str::singular($client->provider)).'Transformer';
 
         return $this->item($user, new $transformer());
     }

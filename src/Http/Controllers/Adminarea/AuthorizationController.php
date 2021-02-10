@@ -90,6 +90,8 @@ class AuthorizationController extends AuthorizedController
      * @param \Psr\Http\Message\ServerRequestInterface $psrRequest
      * @param \Illuminate\Http\Request                 $request
      *
+     * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     *
      * @return \Illuminate\Http\Response
      */
     public function authorizeRequest(ServerRequestInterface $psrRequest, Request $request)
@@ -122,7 +124,7 @@ class AuthorizationController extends AuthorizedController
     }
 
     /**
-     * Transform the authorization requests's scopes into Scope instances.
+     * Transform the authorization requests' scopes into Scope instances.
      *
      * @param \League\OAuth2\Server\RequestTypes\AuthorizationRequest $authRequest
      *
@@ -143,11 +145,13 @@ class AuthorizationController extends AuthorizedController
      * @param \League\OAuth2\Server\RequestTypes\AuthorizationRequest $authRequest
      * @param \Illuminate\Database\Eloquent\Model                     $user
      *
+     * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     *
      * @return \Illuminate\Http\Response
      */
     protected function autoApproveRequest($authRequest, $user)
     {
-        $authRequest->setUser(new User($user->getMorphClass().':'.$user->getAuthIdentifier()));
+        $authRequest->setUser(new User(Str::plural($user->getMorphClass()).':'.$user->getAuthIdentifier()));
 
         $authRequest->setAuthorizationApproved(true);
 
@@ -162,6 +166,8 @@ class AuthorizationController extends AuthorizedController
      * Approve the authorization request.
      *
      * @param \Illuminate\Http\Request $request
+     *
+     * @throws \Rinvex\OAuth\Exceptions\InvalidAuthTokenException
      *
      * @return \Illuminate\Http\Response
      */

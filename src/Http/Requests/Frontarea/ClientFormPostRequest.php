@@ -20,10 +20,9 @@ class ClientFormPostRequest extends ClientFormRequest
     {
         $data = $this->all();
 
-        $data['provider'] = $this->user()->getMorphClass();
         $data['user_id'] = $this->user()->getAuthIdentifier();
+        $data['provider'] = Str::plural($this->user()->getMorphClass());
         $this->route('client') || $data['secret'] = ((bool) $this->input('is_confidential', true)) ? Str::random(40) : null;
-        $data['is_revoked'] = false;
 
         $this->replace($data);
     }
