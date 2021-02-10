@@ -99,7 +99,7 @@ class AuthorizationController extends AuthenticatedController
         });
 
         $scopes = $this->parseScopes($authRequest);
-        $client = app('rinvex.oauth.client')->where('id', $authRequest->getClient()->getIdentifier())->first();
+        $client = app('rinvex.oauth.client')->resolveRouteBinding($authRequest->getClient()->getIdentifier());
         $accessToken = $client->findValidToken($user = $request->user());
 
         if (($accessToken && $accessToken->scopes === collect($scopes)->pluck('id')->all()) ||
