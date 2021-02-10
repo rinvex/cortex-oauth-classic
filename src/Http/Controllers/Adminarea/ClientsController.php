@@ -72,17 +72,17 @@ class ClientsController extends AuthorizedController
      *
      * @param \Cortex\OAuth\DataTables\Adminarea\ClientsDataTable $clientsDataTable
      *
+     * @throws \Exception
+     *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
     public function clientsForUser(User $user, ClientsDataTable $clientsDataTable)
     {
-        $userId = $user->getAuthIdentifier();
-        $provider = $user->getMorphClass();
-        $resource = Str::plural($provider);
+        $provider = Str::plural($user->getMorphClass());
 
-        return $clientsDataTable->addScope(new ResourceUserScope($userId, $provider))->with([
+        return $clientsDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-clients",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -90,19 +90,20 @@ class ClientsController extends AuthorizedController
     /**
      * Get all of the auth codes for the given user.
      *
+     * @param \Cortex\Auth\Models\User                              $user
      * @param \Cortex\OAuth\DataTables\Adminarea\AuthCodesDataTable $authCodesDataTable
+     *
+     * @throws \Exception
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
     public function authCodesForUser(User $user, AuthCodesDataTable $authCodesDataTable)
     {
-        $userId = $user->getAuthIdentifier();
-        $provider = $user->getMorphClass();
-        $resource = Str::plural($provider);
+        $provider = Str::plural($user->getMorphClass());
 
-        return $authCodesDataTable->addScope(new ResourceUserScope($userId, $provider))->with([
+        return $authCodesDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-auth-codes",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -110,19 +111,20 @@ class ClientsController extends AuthorizedController
     /**
      * Get all of the access tokens for the given user.
      *
+     * @param \Cortex\Auth\Models\User                                 $user
      * @param \Cortex\OAuth\DataTables\Adminarea\AccessTokensDataTable $accessTokensDataTable
+     *
+     * @throws \Exception
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
     public function accessTokensForUser(User $user, AccessTokensDataTable $accessTokensDataTable)
     {
-        $userId = $user->getAuthIdentifier();
-        $provider = $user->getMorphClass();
-        $resource = Str::plural($provider);
+        $provider = Str::plural($user->getMorphClass());
 
-        return $accessTokensDataTable->addScope(new ResourceUserScope($userId, $provider))->with([
+        return $accessTokensDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-access-tokens",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }

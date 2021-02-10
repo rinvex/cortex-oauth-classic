@@ -96,9 +96,6 @@ class AuthCodesDataTable extends AbstractDataTable
      */
     public function scope()
     {
-        $userId = $this->request()->user(app('request.guard'))->getAuthIdentifier();
-        $provider = $this->request()->user(app('request.guard'))->getMorphClass();
-
-        return $this->addScope(new ResourceUserScope($userId, $provider));
+        return $this->addScope(new ResourceUserScope($this->request()->user(app('request.guard'))));
     }
 }
