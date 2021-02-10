@@ -75,14 +75,14 @@ class AccessTokensDataTable extends AbstractDataTable
     protected function getUserLink(): string
     {
         return config('cortex.foundation.route.locale_prefix')
-            ? '"<a href=\""+routes.route(\'frontarea.\'+full.provider+\'s.edit\', {[full.provider]: full.user.data.id, locale: \''.$this->request()->segment(1).'\'})+"\">"+full.user.data.username+"</a>"'
-            : '"<a href=\""+routes.route(\'frontarea.\'+full.provider+\'s.edit\', {[full.provider]: full.user.data.id})+"\">"+full.user.data.username+"</a>"';
+            ? '"<a href=\""+routes.route(\'frontarea.cortex.auth.\'+full.provider+\'.edit\', {[full.provider]: full.user.data.id, locale: \''.$this->request()->segment(1).'\'})+"\">"+full.user.data.username+"</a>"'
+            : '"<a href=\""+routes.route(\'frontarea.cortex.auth.\'+full.provider+\'.edit\', {[full.provider]: full.user.data.id})+"\">"+full.user.data.username+"</a>"';
     }
 
     /**
      * Get client link.
      *
-     * @return array
+     * @return string
      */
     protected function getClientLink(): string
     {
