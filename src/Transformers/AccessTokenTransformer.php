@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Transformers;
 
+use Illuminate\Support\Str;
 use Rinvex\Support\Traits\Escaper;
 use Cortex\OAuth\Models\AccessToken;
 use League\Fractal\TransformerAbstract;
@@ -67,7 +68,7 @@ class AccessTokenTransformer extends TransformerAbstract
     public function includeUser(AccessToken $accessToken)
     {
         $user = $accessToken->user;
-        $transformer = '\Cortex\Auth\Transformers\\'.ucwords($accessToken->provider).'Transformer';
+        $transformer = '\Cortex\Auth\Transformers\\'.ucwords(Str::singular($accessToken->provider)).'Transformer';
 
         return $this->item($user, new $transformer());
     }

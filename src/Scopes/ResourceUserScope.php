@@ -4,39 +4,31 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Scopes;
 
+use Cortex\Auth\Models\User;
 use Yajra\DataTables\Contracts\DataTableScope;
 
 class ResourceUserScope implements DataTableScope
 {
     /**
-     * The user id.
+     * The user model object.
      *
-     * @var int
+     * @var \Cortex\Auth\Models\User
      */
-    protected $userId;
-
-    /**
-     * The provider.
-     *
-     * @var string
-     */
-    protected $provider;
+    protected $user;
 
     /**
      * Create a new controller instance.
      *
-     * @param int    $userId
-     * @param string $provider
+     * @param \Cortex\Auth\Models\User $user
      */
-    public function __construct(int $userId, string $provider)
+    public function __construct(User $user)
     {
-        $this->userId = $userId;
-        $this->provider = $provider;
+        $this->user = $user;
     }
 
     public function apply($query)
     {
-        return $query->where('user_id', $this->userId)
-                     ->where('provider', $this->provider);
+        return $query->where('user_id', $this->user->getAuthIdentifier())
+                     ->where('provider', $this->user->getMorphClass());
     }
 }

@@ -99,7 +99,7 @@ class AuthorizationController extends AuthenticatedController
         });
 
         $scopes = $this->parseScopes($authRequest);
-        $client = app('rinvex.oauth.client')->where('id', $authRequest->getClient()->getIdentifier())->first();
+        $client = app('rinvex.oauth.client')->resolveRouteBinding($authRequest->getClient()->getIdentifier());
         $accessToken = $client->findValidToken($user = $request->user());
 
         if (($accessToken && $accessToken->scopes === collect($scopes)->pluck('id')->all()) ||
@@ -145,7 +145,7 @@ class AuthorizationController extends AuthenticatedController
      */
     protected function autoApproveRequest($authRequest, $user)
     {
-        $authRequest->setUser(new User($user->getMorphClass().':'.$user->getAuthIdentifier()));
+        $authRequest->setUser(new User(Str::plural($user->getMorphClass()).':'.$user->getAuthIdentifier()));
 
         $authRequest->setAuthorizationApproved(true);
 

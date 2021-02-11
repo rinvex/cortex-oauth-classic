@@ -38,7 +38,7 @@
                                data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"
                                data-modal-button="<a href='#' class='btn btn-danger' data-form='put' data-token='{{ csrf_token() }}'><i class='fa fa-trash-o'></i> {{ trans('cortex/foundation::common.revoke') }}</a>"
                                data-modal-body="{{ trans('cortex/foundation::messages.delete_confirmation_body', ['resource' => trans('cortex/oauth::common.client'), 'identifier' => $client->getRouteKey()]) }}"
-                               title="{{ trans('cortex/foundation::common.revoke') }}" class="btn btn-warning btn-flat" style="margin: 4px"><i class="fa fa-times text-warning"></i>
+                               title="{{ trans('cortex/foundation::common.revoke') }}" class="btn btn-warning" style="margin: 4px"><i class="fa fa-times text-warning"></i>
                             </a>
                         @endif
 
@@ -48,7 +48,7 @@
                                data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"
                                data-modal-button="<a href='#' class='btn btn-danger' data-form='delete' data-token='{{ csrf_token() }}'><i class='fa fa-trash-o'></i> {{ trans('cortex/foundation::common.delete') }}</a>"
                                data-modal-body="{{ trans('cortex/foundation::messages.delete_confirmation_body', ['resource' => trans('cortex/oauth::common.client'), 'identifier' => $client->getRouteKey()]) }}"
-                               title="{{ trans('cortex/foundation::common.delete') }}" class="btn btn-danger btn-flat" style="margin: 4px"><i class="fa fa-trash text-danger"></i>
+                               title="{{ trans('cortex/foundation::common.delete') }}" class="btn btn-danger" style="margin: 4px"><i class="fa fa-trash text-danger"></i>
                             </a>
                         @endif
 
@@ -154,7 +154,7 @@
                                         {{ Form::button(trans('cortex/oauth::common.submit'), ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) }}
                                     </div>
 
-                                    @include('cortex/foundation::adminarea.partials.timestamps', ['model' => $client])
+                                    @include('cortex/foundation::common.partials.timestamps', ['model' => $client])
 
                                 </div>
 

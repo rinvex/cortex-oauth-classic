@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\OAuth\Traits;
 
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Rinvex\OAuth\Bridge\User;
 use Rinvex\OAuth\Exceptions\InvalidAuthTokenException;
@@ -45,7 +46,7 @@ trait RetrievesAuthRequestFromSession
                 throw new Exception('Authorization request was not present in the session.');
             }
 
-            $authRequest->setUser(new User($request->user()->getMorphClass().':'.$request->user()->getAuthIdentifier()));
+            $authRequest->setUser(new User(Str::plural($request->user()->getMorphClass()).':'.$request->user()->getAuthIdentifier()));
 
             $authRequest->setAuthorizationApproved(true);
         });

@@ -73,8 +73,8 @@ class AuthCodesDataTable extends AbstractDataTable
     protected function getUserLink(): string
     {
         return config('cortex.foundation.route.locale_prefix')
-            ? '"<a href=\""+routes.route(\'frontarea.\'+full.provider+\'s.edit\', {[full.provider]: full.user.data.id, locale: \''.$this->request()->segment(1).'\'})+"\">"+full.user.data.username+"</a>"'
-            : '"<a href=\""+routes.route(\'frontarea.\'+full.provider+\'s.edit\', {[full.provider]: full.user.data.id})+"\">"+full.user.data.username+"</a>"';
+            ? '"<a href=\""+routes.route(\'frontarea.cortex.auth.\'+full.provider+\'.edit\', {[full.provider]: full.user.data.id, locale: \''.$this->request()->segment(1).'\'})+"\">"+full.user.data.username+"</a>"'
+            : '"<a href=\""+routes.route(\'frontarea.cortex.auth.\'+full.provider+\'.edit\', {[full.provider]: full.user.data.id})+"\">"+full.user.data.username+"</a>"';
     }
 
     /**
@@ -96,9 +96,6 @@ class AuthCodesDataTable extends AbstractDataTable
      */
     public function scope()
     {
-        $userId = $this->request()->user(app('request.guard'))->getAuthIdentifier();
-        $provider = $this->request()->user(app('request.guard'))->getMorphClass();
-
-        return $this->addScope(new ResourceUserScope($userId, $provider));
+        return $this->addScope(new ResourceUserScope($this->request()->user(app('request.guard'))));
     }
 }

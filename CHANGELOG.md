@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.7] - 2021-02-11
+- Expect hashed client ID, and resolve it
+- Fix user provider features and conventions
+- Simplify datatables ResourceUserScope
+- Fix wrong datatables route names
+- Refactor broadcasting channels
+- Replace form timestamps with common blade view
+
 ## [v2.0.6] - 2021-02-07
 - Replace silber/bouncer package with custom modified tmp version
 - Generate encryption keys and create personal access & password clients on installation
@@ -43,6 +51,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.7]: https://github.com/rinvex/cortex-oauth/compare/v2.0.6...v2.0.7
 [v2.0.6]: https://github.com/rinvex/cortex-oauth/compare/v2.0.5...v2.0.6
 [v2.0.5]: https://github.com/rinvex/cortex-oauth/compare/v2.0.4...v2.0.5
 [v2.0.4]: https://github.com/rinvex/cortex-oauth/compare/v2.0.3...v2.0.4
