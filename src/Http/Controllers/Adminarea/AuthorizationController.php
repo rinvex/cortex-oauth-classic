@@ -17,9 +17,9 @@ use League\OAuth2\Server\AuthorizationServer;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Rinvex\OAuth\Factories\ApiTokenCookieFactory;
 use Cortex\OAuth\Traits\RetrievesAuthRequestFromSession;
-use Cortex\Foundation\Http\Controllers\AuthorizedController;
+use Cortex\Foundation\Http\Controllers\AuthenticatedController;
 
-class AuthorizationController extends AuthorizedController
+class AuthorizationController extends AuthenticatedController
 {
     use HandlesOAuthErrors;
     use ConvertsPsrResponses;
