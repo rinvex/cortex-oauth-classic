@@ -22,7 +22,7 @@ return [
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
     'expire_at' => 'Expire At',
-    'access_token_id' => 'Access Token ID',
+    'access_token_identifier' => 'Access Token Identifier',
     'submit' => 'Submit',
     'details' => 'Details',
     'records' => 'Records',
