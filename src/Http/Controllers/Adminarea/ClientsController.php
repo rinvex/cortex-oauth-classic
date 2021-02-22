@@ -19,6 +19,11 @@ use Cortex\OAuth\Http\Requests\Adminarea\ClientFormPostRequest;
 class ClientsController extends AuthorizedController
 {
     /**
+     * {@inheritdoc}
+     */
+    protected $resource = 'rinvex.oauth.models.client';
+
+    /**
      * Get all of the clients for the authenticated user.
      *
      * @TODO: Add missing pusher to all needed datatables below.

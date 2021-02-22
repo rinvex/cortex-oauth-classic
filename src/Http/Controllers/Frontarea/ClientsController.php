@@ -10,11 +10,16 @@ use Cortex\OAuth\DataTables\Frontarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest;
 use Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable;
-use Cortex\Foundation\Http\Controllers\AuthenticatedController;
+use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormPostRequest;
 
-class ClientsController extends AuthenticatedController
+class ClientsController extends AuthorizedController
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $resource = 'rinvex.oauth.models.client';
+
     /**
      * Get all of the clients for the authenticated user.
      *
