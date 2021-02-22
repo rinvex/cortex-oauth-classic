@@ -61,7 +61,7 @@ class AccessTokensDataTable extends AbstractDataTable
             'name' => ['title' => trans('cortex/oauth::common.name'), 'responsivePriority' => 0],
             'user' => ['title' => trans('cortex/oauth::common.user'), 'render' => $this->getUserLink(), 'visible' => $this->attributes['show_user'] ?? true],
             'client' => ['title' => trans('cortex/oauth::common.client'), 'render' => $this->getClientLink(), 'visible' => $this->attributes['show_client'] ?? true],
-            'scopes' => ['title' => trans('cortex/oauth::common.scopes')],
+            'abilities' => ['title' => trans('cortex/oauth::common.abilities')],
             'is_revoked' => ['title' => trans('cortex/oauth::common.is_revoked')],
             'expires_at' => ['title' => trans('cortex/oauth::common.expires_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
         ];

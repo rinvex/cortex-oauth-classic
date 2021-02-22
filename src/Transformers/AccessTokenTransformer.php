@@ -37,8 +37,8 @@ class AccessTokenTransformer extends TransformerAbstract
         return $this->escape([
             'id' => (string) $accessToken->getRouteKey(),
             'name' => (string) $accessToken->name,
-            'scopes' => (string) implode(',', $accessToken->scopes),
             'user_type' => (string) $accessToken->user_type,
+            'abilities' => (string) $accessToken->abilities->isNotEmpty() ? $accessToken->abilities->map->title->all() : [],
             'is_revoked' => (bool) $accessToken->is_revoked,
             'expires_at' => (string) $accessToken->expires_at,
         ]);

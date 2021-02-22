@@ -32,7 +32,7 @@
                                 <div><strong>{{ trans('cortex/oauth::common.client_will_access') }}</strong></div>
                                 <ul>
                                     @foreach ($scopes as $scope)
-                                        <li>{{ $scope->description }}</li>
+                                        <li>{{ $scope->title }}</li>
                                     @endforeach
                                 </ul>
                             </div>

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Transformers;
 
-use Illuminate\Support\Str;
 use Cortex\OAuth\Models\AuthCode;
 use Rinvex\Support\Traits\Escaper;
 use League\Fractal\TransformerAbstract;
@@ -36,8 +35,8 @@ class AuthCodeTransformer extends TransformerAbstract
     {
         return $this->escape([
             'id' => (string) $authCode->getRouteKey(),
-            'scopes' => (string) implode(',', $authCode->scopes),
             'user_type' => (string) $authCode->user_type,
+            'abilities' => (string) $authCode->abilities->isNotEmpty() ? $authCode->abilities->map->title->all() : [],
             'is_revoked' => (bool) $authCode->is_revoked,
             'expires_at' => (string) $authCode->expires_at,
         ]);
