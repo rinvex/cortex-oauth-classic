@@ -16,7 +16,6 @@ Broadcast::channel('cortex.oauth.clients.access_tokens', function (Authorizable 
     return $user->can('list', app('rinvex.oauth.access_token'));
 }, ['guards' => ['admin']]);
 
-
 Broadcast::channel('cortex.auth.admins.index', function (Authorizable $user) {
     return $user->can('list', app('rinvex.oauth.client'));
 }, ['guards' => ['admin']]);
@@ -29,7 +28,6 @@ Broadcast::channel('cortex.auth.admins.access_tokens', function (Authorizable $u
     return $user->can('list', app('rinvex.oauth.access_token'));
 }, ['guards' => ['admin']]);
 
-
 Broadcast::channel('cortex.auth.manager.index', function (Authorizable $user) {
     return $user->can('list', app('rinvex.oauth.client'));
 }, ['guards' => ['admin']]);
@@ -41,7 +39,6 @@ Broadcast::channel('cortex.auth.manager.auth_codes', function (Authorizable $use
 Broadcast::channel('cortex.auth.manager.access_tokens', function (Authorizable $user) {
     return $user->can('list', app('rinvex.oauth.access_token'));
 }, ['guards' => ['admin']]);
-
 
 Broadcast::channel('cortex.auth.members.index', function (Authorizable $user) {
     return $user->can('list', app('rinvex.oauth.client'));
