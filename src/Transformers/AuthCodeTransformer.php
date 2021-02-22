@@ -39,6 +39,8 @@ class AuthCodeTransformer extends TransformerAbstract
             'abilities' => (string) $authCode->abilities->isNotEmpty() ? $authCode->abilities->map->title->all() : [],
             'is_revoked' => (bool) $authCode->is_revoked,
             'expires_at' => (string) $authCode->expires_at,
+            'created_at' => (string) $authCode->created_at,
+            'updated_at' => (string) $authCode->updated_at,
         ]);
     }
 

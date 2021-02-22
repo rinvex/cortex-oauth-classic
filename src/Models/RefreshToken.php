@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Models;
 
+use Cortex\Foundation\Traits\Auditable;
 use Rinvex\Support\Traits\HasTimezones;
 use Cortex\OAuth\Events\RefreshTokenCreated;
 use Cortex\OAuth\Events\RefreshTokenDeleted;
@@ -13,6 +14,7 @@ use Rinvex\OAuth\Models\RefreshToken as BaseRefreshToken;
 
 class RefreshToken extends BaseRefreshToken
 {
+    use Auditable;
     use HasTimezones;
 
     /**

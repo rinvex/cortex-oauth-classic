@@ -63,6 +63,7 @@ class ClientsDataTable extends AbstractDataTable
             'grant_type' => ['title' => trans('cortex/oauth::common.grant_type')],
             'is_revoked' => ['title' => trans('cortex/oauth::common.is_revoked')],
             'created_at' => ['title' => trans('cortex/oauth::common.created_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'updated_at' => ['title' => trans('cortex/oauth::common.updated_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
         ];
     }
 

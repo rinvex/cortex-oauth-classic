@@ -41,6 +41,8 @@ class AccessTokenTransformer extends TransformerAbstract
             'abilities' => (string) $accessToken->abilities->isNotEmpty() ? $accessToken->abilities->map->title->all() : [],
             'is_revoked' => (bool) $accessToken->is_revoked,
             'expires_at' => (string) $accessToken->expires_at,
+            'created_at' => (string) $accessToken->created_at,
+            'updated_at' => (string) $accessToken->updated_at,
         ]);
     }
 

@@ -64,6 +64,8 @@ class AccessTokensDataTable extends AbstractDataTable
             'abilities' => ['title' => trans('cortex/oauth::common.abilities')],
             'is_revoked' => ['title' => trans('cortex/oauth::common.is_revoked')],
             'expires_at' => ['title' => trans('cortex/oauth::common.expires_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'created_at' => ['title' => trans('cortex/oauth::common.created_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'updated_at' => ['title' => trans('cortex/oauth::common.updated_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
         ];
     }
 

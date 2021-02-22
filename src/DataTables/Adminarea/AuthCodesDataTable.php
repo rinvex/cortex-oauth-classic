@@ -61,6 +61,8 @@ class AuthCodesDataTable extends AbstractDataTable
             'scopes' => ['title' => trans('cortex/oauth::common.scopes')],
             'is_revoked' => ['title' => trans('cortex/oauth::common.is_revoked')],
             'expires_at' => ['title' => trans('cortex/oauth::common.expires_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'created_at' => ['title' => trans('cortex/oauth::common.created_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'updated_at' => ['title' => trans('cortex/oauth::common.updated_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
         ];
     }
 
