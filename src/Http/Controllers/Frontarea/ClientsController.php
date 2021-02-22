@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Cortex\OAuth\Http\Controllers\Frontarea;
 
 use Cortex\OAuth\Models\Client;
-use Illuminate\Foundation\Http\FormRequest;
+use Cortex\Foundation\Http\FormRequest;
 use Cortex\OAuth\DataTables\Frontarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest;
@@ -99,7 +99,7 @@ class ClientsController extends AuthorizedController
     /**
      * Show client create/edit form.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
+     * @param \Cortex\Foundation\Http\FormRequest $request
      * @param \Cortex\OAuth\Models\Client             $client
      *
      * @return \Illuminate\View\View
@@ -145,7 +145,7 @@ class ClientsController extends AuthorizedController
     /**
      * Process stored/updated client.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
+     * @param \Cortex\Foundation\Http\FormRequest $request
      * @param \Cortex\OAuth\Models\Client             $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
