@@ -78,11 +78,11 @@ class ClientsController extends AuthorizedController
      */
     public function clientsForUser(User $user, ClientsDataTable $clientsDataTable)
     {
-        $provider = Str::plural($user->getMorphClass());
+        $resource = Str::plural($user->getMorphClass());
 
         return $clientsDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-clients",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -99,11 +99,11 @@ class ClientsController extends AuthorizedController
      */
     public function authCodesForUser(User $user, AuthCodesDataTable $authCodesDataTable)
     {
-        $provider = Str::plural($user->getMorphClass());
+        $resource = Str::plural($user->getMorphClass());
 
         return $authCodesDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-auth-codes",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -120,11 +120,11 @@ class ClientsController extends AuthorizedController
      */
     public function accessTokensForUser(User $user, AccessTokensDataTable $accessTokensDataTable)
     {
-        $provider = Str::plural($user->getMorphClass());
+        $resource = Str::plural($user->getMorphClass());
 
         return $accessTokensDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-access-tokens",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -165,7 +165,7 @@ class ClientsController extends AuthorizedController
      */
     protected function form(FormRequest $request, Client $client)
     {
-        if (! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->get('replicate'))) {
+        if (! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->input('replicate'))) {
             $client = $replicated->replicate();
         }
 
