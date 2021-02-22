@@ -16,16 +16,6 @@ class RefreshToken extends BaseRefreshToken
     use HasTimezones;
 
     /**
-     * Obscure IDs in certain access areas.
-     *
-     * @var array
-     */
-    public $obscure = [
-        'rotate' => false,
-        'areas' => [],
-    ];
-
-    /**
      * The event map for the model.
      *
      * @var array
