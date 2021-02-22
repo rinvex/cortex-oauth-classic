@@ -29,6 +29,6 @@ class ResourceUserScope implements DataTableScope
     public function apply($query)
     {
         return $query->where('user_id', $this->user->getAuthIdentifier())
-                     ->where('provider', $this->user->getMorphClass());
+                     ->where('user_type', $this->user->getMorphClass());
     }
 }

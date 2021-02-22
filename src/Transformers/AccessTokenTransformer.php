@@ -37,8 +37,8 @@ class AccessTokenTransformer extends TransformerAbstract
         return $this->escape([
             'id' => (string) $accessToken->getRouteKey(),
             'name' => (string) $accessToken->name,
-            'provider' => (string) $accessToken->provider,
             'scopes' => (string) implode(',', $accessToken->scopes),
+            'user_type' => (string) $accessToken->user_type,
             'is_revoked' => (bool) $accessToken->is_revoked,
             'expires_at' => (string) $accessToken->expires_at,
         ]);
@@ -68,7 +68,7 @@ class AccessTokenTransformer extends TransformerAbstract
     public function includeUser(AccessToken $accessToken)
     {
         $user = $accessToken->user;
-        $transformer = '\Cortex\Auth\Transformers\\'.ucwords(Str::singular($accessToken->provider)).'Transformer';
+        $transformer = '\Cortex\Auth\Transformers\\'.ucwords($accessToken->user_type).'Transformer';
 
         return $this->item($user, new $transformer());
     }

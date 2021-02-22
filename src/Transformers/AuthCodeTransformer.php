@@ -36,8 +36,8 @@ class AuthCodeTransformer extends TransformerAbstract
     {
         return $this->escape([
             'id' => (string) $authCode->getRouteKey(),
-            'provider' => (string) $authCode->provider,
             'scopes' => (string) implode(',', $authCode->scopes),
+            'user_type' => (string) $authCode->user_type,
             'is_revoked' => (bool) $authCode->is_revoked,
             'expires_at' => (string) $authCode->expires_at,
         ]);
@@ -67,7 +67,7 @@ class AuthCodeTransformer extends TransformerAbstract
     public function includeUser(AuthCode $authCode)
     {
         $user = $authCode->user;
-        $transformer = '\Cortex\Auth\Transformers\\'.ucwords(Str::singular($authCode->provider)).'Transformer';
+        $transformer = '\Cortex\Auth\Transformers\\'.ucwords($authCode->user_type).'Transformer';
 
         return $this->item($user, new $transformer());
     }

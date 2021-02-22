@@ -46,7 +46,7 @@ trait RetrievesAuthRequestFromSession
                 throw new Exception('Authorization request was not present in the session.');
             }
 
-            $authRequest->setUser(new User(Str::plural($request->user()->getMorphClass()).':'.$request->user()->getAuthIdentifier()));
+            $authRequest->setUser(new User($request->user()->getMorphClass().':'.$request->user()->getRouteKey()));
 
             $authRequest->setAuthorizationApproved(true);
         });

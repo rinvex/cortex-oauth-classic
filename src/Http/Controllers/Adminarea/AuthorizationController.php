@@ -151,7 +151,7 @@ class AuthorizationController extends AuthorizedController
      */
     protected function autoApproveRequest($authRequest, $user)
     {
-        $authRequest->setUser(new User(Str::plural($user->getMorphClass()).':'.$user->getAuthIdentifier()));
+        $authRequest->setUser(new User($user->getMorphClass().':'.$user->getRouteKey()));
 
         $authRequest->setAuthorizationApproved(true);
 
