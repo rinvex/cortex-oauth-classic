@@ -116,6 +116,6 @@ class ClientsDataTable extends AbstractDataTable
      */
     public function scope()
     {
-        return $this->addScope(new ResourceUserScope($this->request()->user(app('request.guard'))));
+        return $this->addScope(new ResourceUserScope($this->request()->user()));
     }
 }

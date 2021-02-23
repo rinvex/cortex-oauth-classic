@@ -25,14 +25,14 @@
 
             <div class="nav-tabs-custom">
 
-                @if($client->exists && (app('request.user')->can('revoke', $client) || app('request.user')->can('delete', $client) || app('request.user')->can('create', $client)))
+                @if($client->exists && (request()->user()->can('revoke', $client) || request()->user()->can('delete', $client) || request()->user()->can('create', $client)))
                     <div class="pull-right">
 
-                        @if (app('request.user')->can('create', $client))
+                        @if (request()->user()->can('create', $client))
                             <a href="{{ route('adminarea.cortex.oauth.clients.create', ['replicate' => $client->getRouteKey()]) }}" title="{{ trans('cortex/foundation::common.replicate') }}" class="btn btn-default" style="margin: 4px"><i class="fa fa-clone text-default"></i></a>
                         @endif
 
-                        @if(app('request.user')->can('revoke', $client))
+                        @if(request()->user()->can('revoke', $client))
                             <a href="#" data-toggle="modal" data-target="#delete-confirmation"
                                data-modal-action="{{ route('adminarea.cortex.oauth.clients.revoke', ['client' => $client]) }}"
                                data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"
@@ -42,7 +42,7 @@
                             </a>
                         @endif
 
-                        @if(app('request.user')->can('delete', $client))
+                        @if(request()->user()->can('delete', $client))
                             <a href="#" data-toggle="modal" data-target="#delete-confirmation"
                                data-modal-action="{{ route('adminarea.cortex.oauth.clients.destroy', ['client' => $client]) }}"
                                data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"
