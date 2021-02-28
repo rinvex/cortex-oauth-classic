@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.8] - 2021-02-28
+- Whitelist ussueToken method from middleware
+- Enforce consistency
+- Append `SetAuthDefaults` middleware on `api` middleware group
+- Simplify and utilize request()->user() and request()->guard()
+- Use overridden `FormRequest` instead of native class
+- Rename `id` column to `identifier` for refresh token, access token, and auth codes, and drop primary index, just make unique
+- Add timestamps for refresh token, access token, and auth codes
+- Add missing menu permissions
+- Fix parent controller for AuthorizationController
+- Fix authorized controllers to use abilities correctly
+- Remove useless obscure features from models since the primary ids are hashed already (not numeric anyway)
+- Register middleware
+- Enforce consistency
+- Refactor "scopes" and use "abilities" instead
+- Refactor provider to user_type
+
 ## [v2.0.7] - 2021-02-11
 - Expect hashed client ID, and resolve it
 - Fix user provider features and conventions
@@ -51,6 +68,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.8]: https://github.com/rinvex/cortex-oauth/compare/v2.0.7...v2.0.8
 [v2.0.7]: https://github.com/rinvex/cortex-oauth/compare/v2.0.6...v2.0.7
 [v2.0.6]: https://github.com/rinvex/cortex-oauth/compare/v2.0.5...v2.0.6
 [v2.0.5]: https://github.com/rinvex/cortex-oauth/compare/v2.0.4...v2.0.5
