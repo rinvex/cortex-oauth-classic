@@ -94,8 +94,6 @@ class AuthorizationController extends AuthenticatedController
         $client = app('rinvex.oauth.client')->resolveRouteBinding($authRequest->getClient()->getIdentifier());
         $accessToken = $client->findValidToken($user = $request->user());
 
-        //dd($authRequest, $psrRequest, $scopes, $client, $accessToken, $user);
-
         if (($accessToken && $scopes->pluck('id')->diff($accessToken->abilities->pluck('id'))->isEmpty()) || $client->skipsAuthorization()) {
             return $this->autoApproveRequest($authRequest, $user);
         }

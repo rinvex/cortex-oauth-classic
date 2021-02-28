@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Cortex\OAuth\Traits;
 
 use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Rinvex\OAuth\Bridge\User;
 use Rinvex\OAuth\Exceptions\InvalidAuthTokenException;
