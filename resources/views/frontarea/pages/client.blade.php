@@ -127,7 +127,7 @@
                                     <div class="col-md-12 text-center profile-buttons">
                                         {{ Form::button('<i class="fa fa-save"></i> '.trans('cortex/oauth::common.save'), ['class' => 'btn btn-primary btn-flat', 'type' => 'submit']) }}
 
-                                        @if($client->exists && app('request.user')->can('revoke', $client))
+                                        @if($client->exists && request()->user()->can('revoke', $client))
                                             <a href="#" data-toggle="modal" data-target="#delete-confirmation"
                                                data-modal-action="{{ route('frontarea.cortex.oauth.clients.revoke', ['client' => $client]) }}"
                                                data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"
@@ -137,7 +137,7 @@
                                             </a>
                                         @endif
 
-                                        @if($client->exists && app('request.user')->can('delete', $client))
+                                        @if($client->exists && request()->user()->can('delete', $client))
                                             <a href="#" data-toggle="modal" data-target="#delete-confirmation"
                                                data-modal-action="{{ route('frontarea.cortex.oauth.clients.destroy', ['client' => $client]) }}"
                                                data-modal-title="{{ trans('cortex/foundation::messages.delete_confirmation_title') }}"

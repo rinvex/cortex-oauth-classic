@@ -27,7 +27,7 @@
 
                     <ul>
                         @foreach ($scopes as $scope)
-                            <li>{{ $scope->description }}</li>
+                            <li>{{ $scope->title }}</li>
                         @endforeach
                     </ul>
                 </div>

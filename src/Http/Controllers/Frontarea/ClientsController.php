@@ -5,16 +5,21 @@ declare(strict_types=1);
 namespace Cortex\OAuth\Http\Controllers\Frontarea;
 
 use Cortex\OAuth\Models\Client;
-use Illuminate\Foundation\Http\FormRequest;
+use Cortex\Foundation\Http\FormRequest;
 use Cortex\OAuth\DataTables\Frontarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest;
+use Cortex\Foundation\Http\Controllers\AuthorizedController;
 use Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable;
-use Cortex\Foundation\Http\Controllers\AuthenticatedController;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormPostRequest;
 
-class ClientsController extends AuthenticatedController
+class ClientsController extends AuthorizedController
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $resource = 'rinvex.oauth.models.client';
+
     /**
      * Get all of the clients for the authenticated user.
      *
@@ -94,8 +99,8 @@ class ClientsController extends AuthenticatedController
     /**
      * Show client create/edit form.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\Foundation\Http\FormRequest $request
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\View\View
      */
@@ -140,8 +145,8 @@ class ClientsController extends AuthenticatedController
     /**
      * Process stored/updated client.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\Foundation\Http\FormRequest $request
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */

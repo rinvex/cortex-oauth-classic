@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Models;
 
+use Cortex\Foundation\Traits\Auditable;
 use Rinvex\Support\Traits\HasTimezones;
 use Cortex\OAuth\Events\RefreshTokenCreated;
 use Cortex\OAuth\Events\RefreshTokenDeleted;
@@ -13,17 +14,8 @@ use Rinvex\OAuth\Models\RefreshToken as BaseRefreshToken;
 
 class RefreshToken extends BaseRefreshToken
 {
+    use Auditable;
     use HasTimezones;
-
-    /**
-     * Obscure IDs in certain access areas.
-     *
-     * @var array
-     */
-    public $obscure = [
-        'rotate' => false,
-        'areas' => [],
-    ];
 
     /**
      * The event map for the model.

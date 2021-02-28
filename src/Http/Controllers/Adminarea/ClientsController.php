@@ -7,8 +7,8 @@ namespace Cortex\OAuth\Http\Controllers\Adminarea;
 use Illuminate\Support\Str;
 use Cortex\Auth\Models\User;
 use Cortex\OAuth\Models\Client;
+use Cortex\Foundation\Http\FormRequest;
 use Cortex\OAuth\Scopes\ResourceUserScope;
-use Illuminate\Foundation\Http\FormRequest;
 use Cortex\OAuth\DataTables\Adminarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Adminarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Adminarea\ClientFormRequest;
@@ -18,6 +18,11 @@ use Cortex\OAuth\Http\Requests\Adminarea\ClientFormPostRequest;
 
 class ClientsController extends AuthorizedController
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $resource = 'rinvex.oauth.models.client';
+
     /**
      * Get all of the clients for the authenticated user.
      *
@@ -78,11 +83,11 @@ class ClientsController extends AuthorizedController
      */
     public function clientsForUser(User $user, ClientsDataTable $clientsDataTable)
     {
-        $provider = Str::plural($user->getMorphClass());
+        $resource = Str::plural($user->getMorphClass());
 
         return $clientsDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-clients",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -99,11 +104,11 @@ class ClientsController extends AuthorizedController
      */
     public function authCodesForUser(User $user, AuthCodesDataTable $authCodesDataTable)
     {
-        $provider = Str::plural($user->getMorphClass());
+        $resource = Str::plural($user->getMorphClass());
 
         return $authCodesDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-auth-codes",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -120,11 +125,11 @@ class ClientsController extends AuthorizedController
      */
     public function accessTokensForUser(User $user, AccessTokensDataTable $accessTokensDataTable)
     {
-        $provider = Str::plural($user->getMorphClass());
+        $resource = Str::plural($user->getMorphClass());
 
         return $accessTokensDataTable->addScope(new ResourceUserScope($user))->with([
             'show_user' => false,
-            'tabs' => "adminarea.cortex.auth.{$provider}.tabs",
+            'tabs' => "adminarea.cortex.auth.{$resource}.tabs",
             'id' => "adminarea-cortex-auth-users-{$user->getRouteKey()}-access-tokens",
         ])->render('cortex/foundation::adminarea.pages.datatable-tab');
     }
@@ -158,14 +163,14 @@ class ClientsController extends AuthorizedController
     /**
      * Show client create/edit form.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\Foundation\Http\FormRequest $request
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\View\View
      */
     protected function form(FormRequest $request, Client $client)
     {
-        if (! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->get('replicate'))) {
+        if (! $client->exists && $request->has('replicate') && $replicated = $client->resolveRouteBinding($request->input('replicate'))) {
             $client = $replicated->replicate();
         }
 
@@ -208,8 +213,8 @@ class ClientsController extends AuthorizedController
     /**
      * Process stored/updated client.
      *
-     * @param \Illuminate\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\Foundation\Http\FormRequest $request
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */

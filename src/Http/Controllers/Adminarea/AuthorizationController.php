@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Http\Controllers\Adminarea;
 
-use Rinvex\OAuth\OAuth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -18,13 +17,23 @@ use League\OAuth2\Server\AuthorizationServer;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Rinvex\OAuth\Factories\ApiTokenCookieFactory;
 use Cortex\OAuth\Traits\RetrievesAuthRequestFromSession;
-use Cortex\Foundation\Http\Controllers\AuthorizedController;
+use Cortex\Foundation\Http\Controllers\AuthenticatedController;
 
-class AuthorizationController extends AuthorizedController
+class AuthorizationController extends AuthenticatedController
 {
     use HandlesOAuthErrors;
     use ConvertsPsrResponses;
     use RetrievesAuthRequestFromSession;
+
+    /**
+     * Whitelisted methods.
+     * Array of whitelisted methods which do not need to go through middleware.
+     *
+     * @var array
+     */
+    protected $middlewareWhitelist = [
+        'issueToken',
+    ];
 
     /**
      * The authorization server.
@@ -54,16 +63,6 @@ class AuthorizationController extends AuthorizedController
 
         $this->server = $server;
         $this->response = $response;
-    }
-
-    /**
-     * Get all of the available scopes for the application.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function scopes()
-    {
-        return OAuth::scopes();
     }
 
     /**
@@ -101,13 +100,11 @@ class AuthorizationController extends AuthorizedController
         });
 
         $scopes = $this->parseScopes($authRequest);
+
         $client = app('rinvex.oauth.client')->resolveRouteBinding($authRequest->getClient()->getIdentifier());
         $accessToken = $client->findValidToken($user = $request->user());
 
-        //dd($authRequest, $psrRequest, $scopes, $client, $accessToken, $user);
-
-        if (($accessToken && $accessToken->scopes === collect($scopes)->pluck('id')->all()) ||
-            $client->skipsAuthorization()) {
+        if (($accessToken && $scopes->pluck('id')->diff($accessToken->abilities->pluck('id'))->isEmpty()) || $client->skipsAuthorization()) {
             return $this->autoApproveRequest($authRequest, $user);
         }
 
@@ -128,15 +125,17 @@ class AuthorizationController extends AuthorizedController
      *
      * @param \League\OAuth2\Server\RequestTypes\AuthorizationRequest $authRequest
      *
-     * @return array
+     * @return \Illuminate\Support\Collection
      */
     protected function parseScopes($authRequest)
     {
-        return OAuth::scopesFor(
-            collect($authRequest->getScopes())->map(function ($scope) {
-                return $scope->getIdentifier();
-            })->unique()->all()
-        );
+        $userAbilities = request()->user()->abilities;
+
+        $requestScopes = collect($authRequest->getScopes())->map->getIdentifier()->unique()->all();
+
+        return $userAbilities->filter(function ($ability) use ($requestScopes) {
+            return in_array($ability->getRouteKey(), $requestScopes);
+        });
     }
 
     /**
@@ -151,7 +150,7 @@ class AuthorizationController extends AuthorizedController
      */
     protected function autoApproveRequest($authRequest, $user)
     {
-        $authRequest->setUser(new User(Str::plural($user->getMorphClass()).':'.$user->getAuthIdentifier()));
+        $authRequest->setUser(new User($user->getMorphClass().':'.$user->getRouteKey()));
 
         $authRequest->setAuthorizationApproved(true);
 
@@ -186,6 +185,8 @@ class AuthorizationController extends AuthorizedController
      * Deny the authorization request.
      *
      * @param \Illuminate\Http\Request $request
+     *
+     * @throws \Rinvex\OAuth\Exceptions\InvalidAuthTokenException
      *
      * @return \Illuminate\Http\RedirectResponse
      */

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Models;
 
+use Cortex\Foundation\Traits\Auditable;
 use Rinvex\Support\Traits\HasTimezones;
 use Cortex\OAuth\Events\AuthCodeCreated;
 use Cortex\OAuth\Events\AuthCodeDeleted;
@@ -13,17 +14,8 @@ use Rinvex\OAuth\Models\AuthCode as BaseAuthCode;
 
 class AuthCode extends BaseAuthCode
 {
+    use Auditable;
     use HasTimezones;
-
-    /**
-     * Obscure IDs in certain access areas.
-     *
-     * @var array
-     */
-    public $obscure = [
-        'rotate' => false,
-        'areas' => [],
-    ];
 
     /**
      * The event map for the model.

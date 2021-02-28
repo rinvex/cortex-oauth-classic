@@ -62,6 +62,7 @@ class ClientsDataTable extends AbstractDataTable
             'grant_type' => ['title' => trans('cortex/oauth::common.grant_type')],
             'is_revoked' => ['title' => trans('cortex/oauth::common.is_revoked')],
             'created_at' => ['title' => trans('cortex/oauth::common.created_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
+            'updated_at' => ['title' => trans('cortex/oauth::common.updated_at'), 'render' => "moment(data).format('YYYY-MM-DD, hh:mm:ss A')"],
         ];
     }
 
@@ -73,8 +74,8 @@ class ClientsDataTable extends AbstractDataTable
     protected function getUserLink(): string
     {
         return config('cortex.foundation.route.locale_prefix')
-            ? '"<a href=\""+routes.route(\'adminarea.cortex.auth.\'+full.provider+\'.edit\', {[full.provider]: full.user.data.id, locale: \''.$this->request()->segment(1).'\'})+"\">"+full.user.data.username+"</a>"'
-            : '"<a href=\""+routes.route(\'adminarea.cortex.auth.\'+full.provider+\'.edit\', {[full.provider]: full.user.data.id})+"\">"+full.user.data.username+"</a>"';
+            ? '"<a href=\""+routes.route(\'adminarea.cortex.auth.\'+pluralize.plural(full.user_type)+\'.edit\', {[full.user_type]: full.user.data.id, locale: \''.$this->request()->segment(1).'\'})+"\">"+full.user.data.username+"</a>"'
+            : '"<a href=\""+routes.route(\'adminarea.cortex.auth.\'+pluralize.plural(full.user_type)+\'.edit\', {[full.user_type]: full.user.data.id})+"\">"+full.user.data.username+"</a>"';
     }
 
     /**
