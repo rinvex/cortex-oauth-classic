@@ -7,8 +7,8 @@ namespace Cortex\OAuth\Http\Controllers\Adminarea;
 use Illuminate\Support\Str;
 use Cortex\Auth\Models\User;
 use Cortex\OAuth\Models\Client;
-use Cortex\OAuth\Scopes\ResourceUserScope;
 use Cortex\Foundation\Http\FormRequest;
+use Cortex\OAuth\Scopes\ResourceUserScope;
 use Cortex\OAuth\DataTables\Adminarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Adminarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Adminarea\ClientFormRequest;
@@ -164,7 +164,7 @@ class ClientsController extends AuthorizedController
      * Show client create/edit form.
      *
      * @param \Cortex\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\View\View
      */
@@ -214,7 +214,7 @@ class ClientsController extends AuthorizedController
      * Process stored/updated client.
      *
      * @param \Cortex\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */

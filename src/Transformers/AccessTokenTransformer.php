@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cortex\OAuth\Transformers;
 
-use Illuminate\Support\Str;
 use Rinvex\Support\Traits\Escaper;
 use Cortex\OAuth\Models\AccessToken;
 use League\Fractal\TransformerAbstract;

@@ -9,8 +9,8 @@ use Cortex\Foundation\Http\FormRequest;
 use Cortex\OAuth\DataTables\Frontarea\ClientsDataTable;
 use Cortex\OAuth\DataTables\Frontarea\AuthCodesDataTable;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest;
-use Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable;
 use Cortex\Foundation\Http\Controllers\AuthorizedController;
+use Cortex\OAuth\DataTables\Frontarea\AccessTokensDataTable;
 use Cortex\OAuth\Http\Requests\Frontarea\ClientFormPostRequest;
 
 class ClientsController extends AuthorizedController
@@ -100,7 +100,7 @@ class ClientsController extends AuthorizedController
      * Show client create/edit form.
      *
      * @param \Cortex\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\View\View
      */
@@ -146,7 +146,7 @@ class ClientsController extends AuthorizedController
      * Process stored/updated client.
      *
      * @param \Cortex\Foundation\Http\FormRequest $request
-     * @param \Cortex\OAuth\Models\Client             $client
+     * @param \Cortex\OAuth\Models\Client         $client
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
