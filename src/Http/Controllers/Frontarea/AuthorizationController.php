@@ -26,6 +26,16 @@ class AuthorizationController extends AuthenticatedController
     use RetrievesAuthRequestFromSession;
 
     /**
+     * Whitelisted methods.
+     * Array of whitelisted methods which do not need to go through middleware.
+     *
+     * @var array
+     */
+    protected $middlewareWhitelist = [
+        'issueToken',
+    ];
+
+    /**
      * The authorization server.
      *
      * @var \League\OAuth2\Server\AuthorizationServer
