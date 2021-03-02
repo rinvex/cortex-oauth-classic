@@ -129,8 +129,7 @@ class AuthorizationController extends AuthenticatedController
      */
     protected function parseScopes($authRequest)
     {
-        $userAbilities = request()->user()->abilities;
-
+        $userAbilities = request()->user()->getManagedAbilities();
         $requestScopes = collect($authRequest->getScopes())->map->getIdentifier()->unique()->all();
 
         return $userAbilities->filter(function ($ability) use ($requestScopes) {
