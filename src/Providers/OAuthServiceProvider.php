@@ -12,11 +12,6 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Facades\RateLimiter;
 use Rinvex\OAuth\Http\Middleware\CheckScopes;
-use Cortex\OAuth\Console\Commands\SeedCommand;
-use Cortex\OAuth\Console\Commands\InstallCommand;
-use Cortex\OAuth\Console\Commands\MigrateCommand;
-use Cortex\OAuth\Console\Commands\PublishCommand;
-use Cortex\OAuth\Console\Commands\RollbackCommand;
 use Rinvex\OAuth\Http\Middleware\CheckForAnyScope;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Rinvex\OAuth\Http\Middleware\CreateFreshApiToken;
@@ -26,34 +21,6 @@ use Rinvex\OAuth\Http\Middleware\CheckClientCredentialsForAnyScope;
 class OAuthServiceProvider extends ServiceProvider
 {
     use ConsoleTools;
-
-    /**
-     * The commands to be registered.
-     *
-     * @var array
-     */
-    protected $commands = [
-        SeedCommand::class => 'command.cortex.oauth.seed',
-        InstallCommand::class => 'command.cortex.oauth.install',
-        MigrateCommand::class => 'command.cortex.oauth.migrate',
-        PublishCommand::class => 'command.cortex.oauth.publish',
-        RollbackCommand::class => 'command.cortex.oauth.rollback',
-    ];
-
-    /**
-     * Register any application services.
-     *
-     * This service provider is a great spot to register your various container
-     * bindings with the application. As you can see, we are registering our
-     * "Registrar" implementation here. You can add your own bindings too!
-     *
-     * @return void
-     */
-    public function register(): void
-    {
-        // Register console commands
-        $this->registerCommands($this->commands);
-    }
 
     /**
      * Bootstrap any application services.
