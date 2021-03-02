@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.10] - 2021-03-02
+- Autoload artisan commands
+
 ## [v2.0.9] - 2021-03-02
 - Fix user parsed scopes for API authorization request
 - Change middleware order
@@ -72,6 +75,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.10]: https://github.com/rinvex/cortex-oauth/compare/v2.0.9...v2.0.10
 [v2.0.9]: https://github.com/rinvex/cortex-oauth/compare/v2.0.8...v2.0.9
 [v2.0.8]: https://github.com/rinvex/cortex-oauth/compare/v2.0.7...v2.0.8
 [v2.0.7]: https://github.com/rinvex/cortex-oauth/compare/v2.0.6...v2.0.7
