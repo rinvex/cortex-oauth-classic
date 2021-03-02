@@ -83,8 +83,8 @@ class OAuthServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
         $router->middlewareGroup('api', [
             'throttle:api',
-            \Cortex\Foundation\Http\Middleware\SetAuthDefaults::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Cortex\Foundation\Http\Middleware\SetAuthDefaults::class,
         ]);
 
         // Append middleware to the 'web' middlware group
