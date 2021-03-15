@@ -13,11 +13,11 @@ Route::domain(domain())->group(function () {
 
             // Authorization process
                  Route::prefix('oauth')->group(function () {
-                     Route::get('authorize')->name('authorizations.authorize')->uses('AuthorizationController@authorizeRequest');
-                     Route::post('authorize')->name('authorizations.approve')->uses('AuthorizationController@approve');
-                     Route::delete('authorize')->name('authorizations.deny')->uses('AuthorizationController@deny');
-                     Route::post('token')->name('authorizations.token')->uses('AuthorizationController@issueToken');
-                     Route::post('token/refresh')->name('authorizations.token.refresh')->uses('AuthorizationController@refreshToken');
+                     Route::get('authorize')->name('authorize')->uses('AuthorizationController@authorizeRequest');
+                     Route::post('authorize')->name('approve')->uses('AuthorizationController@approve');
+                     Route::delete('authorize')->name('deny')->uses('AuthorizationController@deny');
+                     Route::post('token')->name('token')->uses('AuthorizationController@issueToken');
+                     Route::post('token/refresh')->name('token.refresh')->uses('AuthorizationController@refreshToken');
                  });
 
                  // Managing clients, auth codes, and access tokens
