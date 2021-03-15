@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.11] - 2021-03-15
+- fix create member, admin and manager
+- Remove oauth 'authorizations.' route name prefix
+
 ## [v2.0.10] - 2021-03-02
 - Autoload artisan commands
 
@@ -75,6 +79,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.11]: https://github.com/rinvex/cortex-oauth/compare/v2.0.10...v2.0.11
 [v2.0.10]: https://github.com/rinvex/cortex-oauth/compare/v2.0.9...v2.0.10
 [v2.0.9]: https://github.com/rinvex/cortex-oauth/compare/v2.0.8...v2.0.9
 [v2.0.8]: https://github.com/rinvex/cortex-oauth/compare/v2.0.7...v2.0.8
