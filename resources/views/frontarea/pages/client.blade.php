@@ -13,7 +13,7 @@
 {{-- Main Content --}}
 @section('content')
 
-    @includeWhen($client->exists, 'cortex/foundation::common.partials.modal', ['id' => 'delete-confirmation'])
+    @includeWhen($client->exists, 'cortex/foundation::frontarea.partials.modal', ['id' => 'delete-confirmation'])
 
     <div class="container">
 

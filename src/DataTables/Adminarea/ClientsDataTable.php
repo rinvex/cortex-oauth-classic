@@ -27,24 +27,10 @@ class ClientsDataTable extends AbstractDataTable
      * @var mixed
      */
     protected $buttons = [
-        'create' => true,
         'import' => false,
-        'create_popup' => false,
-
-        'reset' => true,
-        'reload' => true,
-        'showSelected' => true,
-
         'print' => false,
         'export' => false,
-
-        'bulkDelete' => true,
-        'bulkActivate' => false,
-        'bulkDeactivate' => false,
         'bulkRevoke' => true,
-
-        'colvis' => true,
-        'pageLength' => true,
     ];
 
     /**
