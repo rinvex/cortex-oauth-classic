@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.13] - 2021-05-24
+- Drop common blade views in favor for accessarea specific views
+- Remove duplicate button options, it's already merged from default config
+
 ## [v2.0.12] - 2021-05-07
 - Upgrade to GitHub-native Dependabot
 - Rename migrations to always run after rinvex core packages
@@ -83,6 +87,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.13]: https://github.com/rinvex/cortex-oauth/compare/v2.0.12...v2.0.13
 [v2.0.12]: https://github.com/rinvex/cortex-oauth/compare/v2.0.11...v2.0.12
 [v2.0.11]: https://github.com/rinvex/cortex-oauth/compare/v2.0.10...v2.0.11
 [v2.0.10]: https://github.com/rinvex/cortex-oauth/compare/v2.0.9...v2.0.10
