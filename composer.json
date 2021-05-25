@@ -40,7 +40,7 @@
         "php": "^7.4.0 || ^8.0.0",
         "cortex/auth": "^7.0.0",
         "cortex/foundation": "^6.0.0",
-        "diglactic/laravel-breadcrumbs": "^6.0.0",
+        "diglactic/laravel-breadcrumbs": "^7.0.0",
         "illuminate/broadcasting": "^8.0.0 || ^9.0.0",
         "illuminate/cache": "^8.0.0 || ^9.0.0",
         "illuminate/console": "^8.0.0 || ^9.0.0",
