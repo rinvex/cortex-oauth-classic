@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.15] - 2021-06-20
+- Fix namespace naming convention
+
 ## [v2.0.14] - 2021-05-25
 - Replace deprecated `Breadcrumbs::register` with `Breadcrumbs::for`
 - Update composer dependencies diglactic/laravel-breadcrumbs to v7
@@ -91,6 +94,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.15]: https://github.com/rinvex/cortex-oauth/compare/v2.0.14...v2.0.15
 [v2.0.14]: https://github.com/rinvex/cortex-oauth/compare/v2.0.13...v2.0.14
 [v2.0.13]: https://github.com/rinvex/cortex-oauth/compare/v2.0.12...v2.0.13
 [v2.0.12]: https://github.com/rinvex/cortex-oauth/compare/v2.0.11...v2.0.12
