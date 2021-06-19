@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Console\Commands;
+namespace Cortex\Oauth\Console\Commands;
 
-use Rinvex\OAuth\Console\Commands\RollbackCommand as BaseRollbackCommand;
+use Rinvex\Oauth\Console\Commands\RollbackCommand as BaseRollbackCommand;
 
 class RollbackCommand extends BaseRollbackCommand
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Http\Requests\Adminarea;
+namespace Cortex\Oauth\Http\Requests\Adminarea;
 
 use Rinvex\Support\Traits\Escaper;
 use Cortex\Foundation\Http\FormRequest;

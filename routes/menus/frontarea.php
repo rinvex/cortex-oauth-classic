@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Cortex\OAuth\Models\Client;
+use Cortex\Oauth\Models\Client;
 use Rinvex\Menus\Models\MenuGenerator;
 
 if ($user = request()->user()) {

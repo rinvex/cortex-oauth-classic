@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Transformers;
+namespace Cortex\Oauth\Transformers;
 
-use Cortex\OAuth\Models\Client;
+use Cortex\Oauth\Models\Client;
 use Rinvex\Support\Traits\Escaper;
 use League\Fractal\TransformerAbstract;
 
@@ -24,7 +24,7 @@ class ClientTransformer extends TransformerAbstract
     /**
      * Transform client model.
      *
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\Oauth\Models\Client $client
      *
      * @throws \Exception
      *
@@ -46,7 +46,7 @@ class ClientTransformer extends TransformerAbstract
     /**
      * Include Author.
      *
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\Oauth\Models\Client $client
      *
      * @return \League\Fractal\Resource\Item
      */

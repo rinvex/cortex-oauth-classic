@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Transformers;
+namespace Cortex\Oauth\Transformers;
 
-use Cortex\OAuth\Models\AuthCode;
+use Cortex\Oauth\Models\AuthCode;
 use Rinvex\Support\Traits\Escaper;
 use League\Fractal\TransformerAbstract;
 
@@ -25,7 +25,7 @@ class AuthCodeTransformer extends TransformerAbstract
     /**
      * Transform auth code model.
      *
-     * @param \Cortex\OAuth\Models\AuthCode $authCode
+     * @param \Cortex\Oauth\Models\AuthCode $authCode
      *
      * @throws \Exception
      *
@@ -47,7 +47,7 @@ class AuthCodeTransformer extends TransformerAbstract
     /**
      * Include Author.
      *
-     * @param \Cortex\OAuth\Models\AuthCode $authCode
+     * @param \Cortex\Oauth\Models\AuthCode $authCode
      *
      * @return \League\Fractal\Resource\Item
      */
@@ -61,7 +61,7 @@ class AuthCodeTransformer extends TransformerAbstract
     /**
      * Include Author.
      *
-     * @param \Cortex\OAuth\Models\AuthCode $authCode
+     * @param \Cortex\Oauth\Models\AuthCode $authCode
      *
      * @return \League\Fractal\Resource\Item
      */

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Traits;
+namespace Cortex\Oauth\Traits;
 
 use Nyholm\Psr7\Response as Psr7Response;
-use Rinvex\OAuth\Exceptions\OAuthServerException;
+use Rinvex\Oauth\Exceptions\OAuthServerException;
 use League\OAuth2\Server\Exception\OAuthServerException as LeagueException;
 
 trait HandlesOAuthErrors
@@ -17,7 +17,7 @@ trait HandlesOAuthErrors
      *
      * @param \Closure $callback
      *
-     * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     * @throws \Rinvex\Oauth\Exceptions\OAuthServerException
      *
      * @return mixed
      */

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Traits;
+namespace Cortex\Oauth\Traits;
 
 use Illuminate\Http\Response;
 

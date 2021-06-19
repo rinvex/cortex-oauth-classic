@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Console\Commands;
+namespace Cortex\Oauth\Console\Commands;
 
 use Illuminate\Console\Command;
 

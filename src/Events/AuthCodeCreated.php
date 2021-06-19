@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Events;
+namespace Cortex\Oauth\Events;
 
-use Cortex\OAuth\Models\AuthCode;
+use Cortex\Oauth\Models\AuthCode;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -27,14 +27,14 @@ class AuthCodeCreated implements ShouldBroadcast
     /**
      * The model instance passed to this event.
      *
-     * @var \Cortex\OAuth\Models\AuthCode
+     * @var \Cortex\Oauth\Models\AuthCode
      */
     public AuthCode $model;
 
     /**
      * Create a new event instance.
      *
-     * @param \Cortex\OAuth\Models\AuthCode $authCode
+     * @param \Cortex\Oauth\Models\AuthCode $authCode
      */
     public function __construct(AuthCode $authCode)
     {

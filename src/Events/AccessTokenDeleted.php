@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Events;
+namespace Cortex\Oauth\Events;
 
-use Cortex\OAuth\Models\AccessToken;
+use Cortex\Oauth\Models\AccessToken;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -25,14 +25,14 @@ class AccessTokenDeleted implements ShouldBroadcast
     /**
      * The model instance passed to this event.
      *
-     * @var \Cortex\OAuth\Models\AccessToken
+     * @var \Cortex\Oauth\Models\AccessToken
      */
     public AccessToken $model;
 
     /**
      * Create a new event instance.
      *
-     * @param \Cortex\OAuth\Models\AccessToken $accessToken
+     * @param \Cortex\Oauth\Models\AccessToken $accessToken
      */
     public function __construct(AccessToken $accessToken)
     {

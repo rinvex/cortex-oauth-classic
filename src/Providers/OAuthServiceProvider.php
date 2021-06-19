@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Providers;
+namespace Cortex\Oauth\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
@@ -11,12 +11,12 @@ use Rinvex\Support\Traits\ConsoleTools;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Facades\RateLimiter;
-use Rinvex\OAuth\Http\Middleware\CheckScopes;
-use Rinvex\OAuth\Http\Middleware\CheckForAnyScope;
+use Rinvex\Oauth\Http\Middleware\CheckScopes;
+use Rinvex\Oauth\Http\Middleware\CheckForAnyScope;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Rinvex\OAuth\Http\Middleware\CreateFreshApiToken;
-use Rinvex\OAuth\Http\Middleware\CheckClientCredentials;
-use Rinvex\OAuth\Http\Middleware\CheckClientCredentialsForAnyScope;
+use Rinvex\Oauth\Http\Middleware\CreateFreshApiToken;
+use Rinvex\Oauth\Http\Middleware\CheckClientCredentials;
+use Rinvex\Oauth\Http\Middleware\CheckClientCredentialsForAnyScope;
 
 class OAuthServiceProvider extends ServiceProvider
 {

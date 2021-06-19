@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Console\Commands;
+namespace Cortex\Oauth\Console\Commands;
 
 use Illuminate\Console\Command;
-use Cortex\OAuth\Database\Seeders\CortexOAuthSeeder;
+use Cortex\Oauth\Database\Seeders\CortexOAuthSeeder;
 
 class SeedCommand extends Command
 {

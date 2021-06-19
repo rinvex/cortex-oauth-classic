@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Models;
+namespace Cortex\Oauth\Models;
 
-use Cortex\OAuth\Events\ClientCreated;
-use Cortex\OAuth\Events\ClientDeleted;
-use Cortex\OAuth\Events\ClientUpdated;
+use Cortex\Oauth\Events\ClientCreated;
+use Cortex\Oauth\Events\ClientDeleted;
+use Cortex\Oauth\Events\ClientUpdated;
 use Cortex\Foundation\Traits\Auditable;
-use Cortex\OAuth\Events\ClientRestored;
+use Cortex\Oauth\Events\ClientRestored;
 use Rinvex\Support\Traits\HashidsTrait;
 use Rinvex\Support\Traits\HasTimezones;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Rinvex\OAuth\Models\Client as BaseClient;
+use Rinvex\Oauth\Models\Client as BaseClient;
 use Spatie\Activitylog\Traits\CausesActivity;
 
 class Client extends BaseClient

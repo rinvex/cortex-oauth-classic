@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Models;
+namespace Cortex\Oauth\Models;
 
 use Cortex\Foundation\Traits\Auditable;
 use Rinvex\Support\Traits\HasTimezones;
-use Cortex\OAuth\Events\AuthCodeCreated;
-use Cortex\OAuth\Events\AuthCodeDeleted;
-use Cortex\OAuth\Events\AuthCodeUpdated;
-use Cortex\OAuth\Events\AuthCodeRestored;
-use Rinvex\OAuth\Models\AuthCode as BaseAuthCode;
+use Cortex\Oauth\Events\AuthCodeCreated;
+use Cortex\Oauth\Events\AuthCodeDeleted;
+use Cortex\Oauth\Events\AuthCodeUpdated;
+use Cortex\Oauth\Events\AuthCodeRestored;
+use Rinvex\Oauth\Models\AuthCode as BaseAuthCode;
 
 class AuthCode extends BaseAuthCode
 {

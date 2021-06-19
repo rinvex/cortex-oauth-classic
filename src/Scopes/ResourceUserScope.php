@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Scopes;
+namespace Cortex\Oauth\Scopes;
 
 use Cortex\Auth\Models\User;
 use Yajra\DataTables\Contracts\DataTableScope;

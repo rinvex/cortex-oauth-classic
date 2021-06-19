@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Events;
+namespace Cortex\Oauth\Events;
 
-use Cortex\OAuth\Models\Client;
+use Cortex\Oauth\Models\Client;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -25,14 +25,14 @@ class ClientDeleted implements ShouldBroadcast
     /**
      * The model instance passed to this event.
      *
-     * @var \Cortex\OAuth\Models\Client
+     * @var \Cortex\Oauth\Models\Client
      */
     public Client $model;
 
     /**
      * Create a new event instance.
      *
-     * @param \Cortex\OAuth\Models\Client $client
+     * @param \Cortex\Oauth\Models\Client $client
      */
     public function __construct(Client $client)
     {

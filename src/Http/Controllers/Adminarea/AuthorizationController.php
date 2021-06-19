@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Http\Controllers\Adminarea;
+namespace Cortex\Oauth\Http\Controllers\Adminarea;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Rinvex\OAuth\Bridge\User;
+use Rinvex\Oauth\Bridge\User;
 use Nyholm\Psr7\Response as Psr7Response;
-use Cortex\OAuth\Traits\HandlesOAuthErrors;
+use Cortex\Oauth\Traits\HandlesOAuthErrors;
 use Psr\Http\Message\ServerRequestInterface;
-use Cortex\OAuth\Traits\ConvertsPsrResponses;
+use Cortex\Oauth\Traits\ConvertsPsrResponses;
 use League\OAuth2\Server\AuthorizationServer;
 use Illuminate\Contracts\Routing\ResponseFactory;
-use Rinvex\OAuth\Factories\ApiTokenCookieFactory;
-use Cortex\OAuth\Traits\RetrievesAuthRequestFromSession;
+use Rinvex\Oauth\Factories\ApiTokenCookieFactory;
+use Cortex\Oauth\Traits\RetrievesAuthRequestFromSession;
 use Cortex\Foundation\Http\Controllers\AuthenticatedController;
 
 class AuthorizationController extends AuthenticatedController
@@ -70,7 +70,7 @@ class AuthorizationController extends AuthenticatedController
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      *
-     * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     * @throws \Rinvex\Oauth\Exceptions\OAuthServerException
      *
      * @return \Illuminate\Http\Response
      */
@@ -89,7 +89,7 @@ class AuthorizationController extends AuthenticatedController
      * @param \Psr\Http\Message\ServerRequestInterface $psrRequest
      * @param \Illuminate\Http\Request                 $request
      *
-     * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     * @throws \Rinvex\Oauth\Exceptions\OAuthServerException
      *
      * @return \Illuminate\Http\Response
      */
@@ -143,7 +143,7 @@ class AuthorizationController extends AuthenticatedController
      * @param \League\OAuth2\Server\RequestTypes\AuthorizationRequest $authRequest
      * @param \Illuminate\Database\Eloquent\Model                     $user
      *
-     * @throws \Rinvex\OAuth\Exceptions\OAuthServerException
+     * @throws \Rinvex\Oauth\Exceptions\OAuthServerException
      *
      * @return \Illuminate\Http\Response
      */
@@ -165,7 +165,7 @@ class AuthorizationController extends AuthenticatedController
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @throws \Rinvex\OAuth\Exceptions\InvalidAuthTokenException
+     * @throws \Rinvex\Oauth\Exceptions\InvalidAuthTokenException
      *
      * @return \Illuminate\Http\Response
      */
@@ -185,7 +185,7 @@ class AuthorizationController extends AuthenticatedController
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @throws \Rinvex\OAuth\Exceptions\InvalidAuthTokenException
+     * @throws \Rinvex\Oauth\Exceptions\InvalidAuthTokenException
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -212,7 +212,7 @@ class AuthorizationController extends AuthenticatedController
      * Get a fresh transient token cookie for the authenticated user.
      *
      * @param \Illuminate\Http\Request                      $request
-     * @param \Rinvex\OAuth\Factories\ApiTokenCookieFactory $cookieFactory
+     * @param \Rinvex\Oauth\Factories\ApiTokenCookieFactory $cookieFactory
      *
      * @return \Illuminate\Http\Response
      */
