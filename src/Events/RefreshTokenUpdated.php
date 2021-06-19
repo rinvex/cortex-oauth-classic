@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Events;
+namespace Cortex\Oauth\Events;
 
-use Cortex\OAuth\Models\RefreshToken;
+use Cortex\Oauth\Models\RefreshToken;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -27,14 +27,14 @@ class RefreshTokenUpdated implements ShouldBroadcast
     /**
      * The model instance passed to this event.
      *
-     * @var \Cortex\OAuth\Models\RefreshToken
+     * @var \Cortex\Oauth\Models\RefreshToken
      */
     public RefreshToken $model;
 
     /**
      * Create a new event instance.
      *
-     * @param \Cortex\OAuth\Models\RefreshToken $refreshToken
+     * @param \Cortex\Oauth\Models\RefreshToken $refreshToken
      */
     public function __construct(RefreshToken $refreshToken)
     {

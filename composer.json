@@ -74,13 +74,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Cortex\\OAuth\\": "src/",
-            "Cortex\\OAuth\\Database\\Seeders\\": "database/seeders/"
+            "Cortex\\Oauth\\": "src/",
+            "Cortex\\Oauth\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cortex\\OAuth\\Tests\\": "tests"
+            "Cortex\\Oauth\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -94,7 +94,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Cortex\\OAuth\\Providers\\OAuthServiceProvider"
+                "Cortex\\Oauth\\Providers\\OAuthServiceProvider"
             ]
         }
     },

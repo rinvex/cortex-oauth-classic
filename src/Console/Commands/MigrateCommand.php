@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Console\Commands;
+namespace Cortex\Oauth\Console\Commands;
 
-use Rinvex\OAuth\Console\Commands\MigrateCommand as BaseMigrateCommand;
+use Rinvex\Oauth\Console\Commands\MigrateCommand as BaseMigrateCommand;
 
 class MigrateCommand extends BaseMigrateCommand
 {

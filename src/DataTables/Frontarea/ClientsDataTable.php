@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\DataTables\Frontarea;
+namespace Cortex\Oauth\DataTables\Frontarea;
 
-use Cortex\OAuth\Models\Client;
+use Cortex\Oauth\Models\Client;
 use Illuminate\Database\Eloquent\Builder;
-use Cortex\OAuth\Scopes\ResourceUserScope;
-use Cortex\OAuth\Transformers\ClientTransformer;
+use Cortex\Oauth\Scopes\ResourceUserScope;
+use Cortex\Oauth\Transformers\ClientTransformer;
 use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class ClientsDataTable extends AbstractDataTable

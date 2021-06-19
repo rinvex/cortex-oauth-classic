@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Models;
+namespace Cortex\Oauth\Models;
 
 use Cortex\Foundation\Traits\Auditable;
 use Rinvex\Support\Traits\HasTimezones;
-use Cortex\OAuth\Events\AccessTokenCreated;
-use Cortex\OAuth\Events\AccessTokenDeleted;
-use Cortex\OAuth\Events\AccessTokenUpdated;
-use Cortex\OAuth\Events\AccessTokenRestored;
-use Rinvex\OAuth\Models\AccessToken as BaseAccessToken;
+use Cortex\Oauth\Events\AccessTokenCreated;
+use Cortex\Oauth\Events\AccessTokenDeleted;
+use Cortex\Oauth\Events\AccessTokenUpdated;
+use Cortex\Oauth\Events\AccessTokenRestored;
+use Rinvex\Oauth\Models\AccessToken as BaseAccessToken;
 
 class AccessToken extends BaseAccessToken
 {

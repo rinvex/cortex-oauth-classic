@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\DataTables\Adminarea;
+namespace Cortex\Oauth\DataTables\Adminarea;
 
-use Cortex\OAuth\Models\AccessToken;
+use Cortex\Oauth\Models\AccessToken;
 use Illuminate\Database\Eloquent\Builder;
 use Cortex\Foundation\DataTables\AbstractDataTable;
-use Cortex\OAuth\Transformers\AccessTokenTransformer;
+use Cortex\Oauth\Transformers\AccessTokenTransformer;
 
 class AccessTokensDataTable extends AbstractDataTable
 {

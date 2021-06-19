@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Http\Requests\Frontarea;
+namespace Cortex\Oauth\Http\Requests\Frontarea;
 
 use Illuminate\Support\Str;
 use Rinvex\Support\Traits\Escaper;

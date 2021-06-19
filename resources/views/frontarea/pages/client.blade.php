@@ -7,7 +7,7 @@
 @endsection
 
 @push('inline-scripts')
-    {!! JsValidator::formRequest(Cortex\OAuth\Http\Requests\Frontarea\ClientFormRequest::class)->selector("#frontarea-cortex-oauth-clients-create-form, #frontarea-cortex-oauth-clients-{$client->getRouteKey()}-update-form")->ignore('.skip-validation') !!}
+    {!! JsValidator::formRequest(Cortex\Oauth\Http\Requests\Frontarea\ClientFormRequest::class)->selector("#frontarea-cortex-oauth-clients-create-form, #frontarea-cortex-oauth-clients-{$client->getRouteKey()}-update-form")->ignore('.skip-validation') !!}
 @endpush
 
 {{-- Main Content --}}

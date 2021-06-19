@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Models;
+namespace Cortex\Oauth\Models;
 
 use Cortex\Foundation\Traits\Auditable;
 use Rinvex\Support\Traits\HasTimezones;
-use Cortex\OAuth\Events\RefreshTokenCreated;
-use Cortex\OAuth\Events\RefreshTokenDeleted;
-use Cortex\OAuth\Events\RefreshTokenUpdated;
-use Cortex\OAuth\Events\RefreshTokenRestored;
-use Rinvex\OAuth\Models\RefreshToken as BaseRefreshToken;
+use Cortex\Oauth\Events\RefreshTokenCreated;
+use Cortex\Oauth\Events\RefreshTokenDeleted;
+use Cortex\Oauth\Events\RefreshTokenUpdated;
+use Cortex\Oauth\Events\RefreshTokenRestored;
+use Rinvex\Oauth\Models\RefreshToken as BaseRefreshToken;
 
 class RefreshToken extends BaseRefreshToken
 {

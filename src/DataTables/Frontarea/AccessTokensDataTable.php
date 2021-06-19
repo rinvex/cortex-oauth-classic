@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\DataTables\Frontarea;
+namespace Cortex\Oauth\DataTables\Frontarea;
 
-use Cortex\OAuth\Models\AccessToken;
+use Cortex\Oauth\Models\AccessToken;
 use Illuminate\Database\Eloquent\Builder;
-use Cortex\OAuth\Scopes\ResourceUserScope;
+use Cortex\Oauth\Scopes\ResourceUserScope;
 use Cortex\Foundation\DataTables\AbstractDataTable;
-use Cortex\OAuth\Transformers\AccessTokenTransformer;
+use Cortex\Oauth\Transformers\AccessTokenTransformer;
 
 class AccessTokensDataTable extends AbstractDataTable
 {

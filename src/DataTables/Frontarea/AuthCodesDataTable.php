@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\DataTables\Frontarea;
+namespace Cortex\Oauth\DataTables\Frontarea;
 
-use Cortex\OAuth\Models\AuthCode;
-use Cortex\OAuth\Scopes\ResourceUserScope;
-use Cortex\OAuth\Transformers\AuthCodeTransformer;
+use Cortex\Oauth\Models\AuthCode;
+use Cortex\Oauth\Scopes\ResourceUserScope;
+use Cortex\Oauth\Transformers\AuthCodeTransformer;
 use Cortex\Foundation\DataTables\AbstractDataTable;
 
 class AuthCodesDataTable extends AbstractDataTable

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Traits;
+namespace Cortex\Oauth\Traits;
 
 use Exception;
 use Illuminate\Http\Request;
-use Rinvex\OAuth\Bridge\User;
-use Rinvex\OAuth\Exceptions\InvalidAuthTokenException;
+use Rinvex\Oauth\Bridge\User;
+use Rinvex\Oauth\Exceptions\InvalidAuthTokenException;
 
 trait RetrievesAuthRequestFromSession
 {
@@ -16,7 +16,7 @@ trait RetrievesAuthRequestFromSession
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @throws \Rinvex\OAuth\Exceptions\InvalidAuthTokenException
+     * @throws \Rinvex\Oauth\Exceptions\InvalidAuthTokenException
      *
      * @return void
      */

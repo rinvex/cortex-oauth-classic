@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Database\Seeders;
+namespace Cortex\Oauth\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 

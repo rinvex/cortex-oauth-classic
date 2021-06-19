@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Cortex\OAuth\Transformers;
+namespace Cortex\Oauth\Transformers;
 
 use Rinvex\Support\Traits\Escaper;
-use Cortex\OAuth\Models\AccessToken;
+use Cortex\Oauth\Models\AccessToken;
 use League\Fractal\TransformerAbstract;
 
 class AccessTokenTransformer extends TransformerAbstract
@@ -25,7 +25,7 @@ class AccessTokenTransformer extends TransformerAbstract
     /**
      * Transform auth code model.
      *
-     * @param \Cortex\OAuth\Models\AccessToken $accessToken
+     * @param \Cortex\Oauth\Models\AccessToken $accessToken
      *
      * @throws \Exception
      *
@@ -48,7 +48,7 @@ class AccessTokenTransformer extends TransformerAbstract
     /**
      * Include Author.
      *
-     * @param \Cortex\OAuth\Models\AccessToken $accessToken
+     * @param \Cortex\Oauth\Models\AccessToken $accessToken
      *
      * @return \League\Fractal\Resource\Item
      */
@@ -62,7 +62,7 @@ class AccessTokenTransformer extends TransformerAbstract
     /**
      * Include Author.
      *
-     * @param \Cortex\OAuth\Models\AccessToken $accessToken
+     * @param \Cortex\Oauth\Models\AccessToken $accessToken
      *
      * @return \League\Fractal\Resource\Item
      */
