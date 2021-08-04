@@ -22,7 +22,7 @@ class ClientFormPostRequest extends ClientFormRequest
 
         $data['user_id'] = $this->user()->getAuthIdentifier();
         $data['user_type'] = $this->user()->getMorphClass();
-        $this->route('client') || $data['secret'] = ((bool) $this->input('is_confidential', true)) ? Str::random(40) : null;
+        $this->route('client') || $data['secret'] = ((bool) $this->get('is_confidential', true)) ? Str::random(40) : null;
 
         $this->replace($data);
     }
