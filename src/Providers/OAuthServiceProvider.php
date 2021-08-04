@@ -54,7 +54,7 @@ class OAuthServiceProvider extends ServiceProvider
             \Cortex\Foundation\Http\Middleware\SetAuthDefaults::class,
         ]);
 
-        // Append middleware to the 'web' middlware group
+        // Append middleware to the 'web' middleware group
         $router->pushMiddlewareToGroup('web', CreateFreshApiToken::class);
 
         // Alias route middleware on the fly
