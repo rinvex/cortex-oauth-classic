@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Oauth\Models;
 
+use Spatie\Activitylog\LogOptions;
 use Cortex\Oauth\Events\ClientCreated;
 use Cortex\Oauth\Events\ClientDeleted;
 use Cortex\Oauth\Events\ClientUpdated;
@@ -36,27 +37,15 @@ class Client extends BaseClient
     ];
 
     /**
-     * Indicates whether to log only dirty attributes or all.
+     * Set sensible Activity Log Options.
      *
-     * @var bool
+     * @return \Spatie\Activitylog\LogOptions
      */
-    protected static $logOnlyDirty = true;
-
-    /**
-     * The attributes that are logged on change.
-     *
-     * @var array
-     */
-    protected static $logFillable = true;
-
-    /**
-     * The attributes that are ignored on change.
-     *
-     * @var array
-     */
-    protected static $ignoreChangedAttributes = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+                         ->logFillable()
+                         ->logOnlyDirty()
+                         ->dontSubmitEmptyLogs();
+    }
 }
