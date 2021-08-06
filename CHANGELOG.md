@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v2.0.17] - 2021-08-07
+- Upgrade spatie/laravel-activitylog to v4
+
 ## [v2.0.16] - 2021-08-06
 - Simplify route prefixes
 - Enforce request()->get() method usage consistency
@@ -101,6 +104,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v2.0.17]: https://github.com/rinvex/cortex-oauth/compare/v2.0.16...v2.0.17
 [v2.0.16]: https://github.com/rinvex/cortex-oauth/compare/v2.0.15...v2.0.16
 [v2.0.15]: https://github.com/rinvex/cortex-oauth/compare/v2.0.14...v2.0.15
 [v2.0.14]: https://github.com/rinvex/cortex-oauth/compare/v2.0.13...v2.0.14
