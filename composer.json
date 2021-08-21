@@ -37,7 +37,7 @@
         }
     ],
     "require": {
-        "php": "^7.4.0 || ^8.0.0",
+        "php": "^8.0.0",
         "cortex/auth": "^8.0.0",
         "cortex/foundation": "^7.0.0",
         "diglactic/laravel-breadcrumbs": "^7.0.0",
@@ -57,10 +57,10 @@
         "nyholm/psr7": "^1.3.0",
         "proengsoft/laravel-jsvalidation": "^4.4.0",
         "psr/http-client": "^1.0.0",
-        "rinvex/laravel-composer": "^5.0.0",
-        "rinvex/laravel-menus": "^5.0.0",
-        "rinvex/laravel-oauth": "^2.0.0",
-        "rinvex/laravel-support": "^5.0.0",
+        "rinvex/laravel-composer": "^6.0.0",
+        "rinvex/laravel-menus": "^6.0.0",
+        "rinvex/laravel-oauth": "^3.0.0",
+        "rinvex/laravel-support": "^6.0.0",
         "rinvex/tmp-josephsilber-bouncer": "^1.0.0",
         "spatie/laravel-activitylog": "^4.0.0",
         "yajra/laravel-datatables-buttons": "^4.10.0",
