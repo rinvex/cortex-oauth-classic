@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.1.2] - 2021-10-22
+- Refactor route domain variables to be accessarea specific
+- Update .styleci.yml fixers
+
 ## [v3.1.1] - 2021-10-11
 - Rename route parameter 'central_domain' to 'routeDomain'
 
@@ -118,6 +122,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v3.1.2]: https://github.com/rinvex/cortex-oauth/compare/v3.1.1...v3.1.2
 [v3.1.1]: https://github.com/rinvex/cortex-oauth/compare/v3.1.0...v3.1.1
 [v3.1.0]: https://github.com/rinvex/cortex-oauth/compare/v3.0.1...v3.1.0
 [v3.0.1]: https://github.com/rinvex/cortex-oauth/compare/v3.0.0...v3.0.1
