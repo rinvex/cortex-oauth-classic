@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
+use Illuminate\Http\Request;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 use Rinvex\Oauth\Http\Middleware\CheckScopes;
 use Rinvex\Oauth\Http\Middleware\CheckForAnyScope;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Rinvex\Oauth\Http\Middleware\CreateFreshApiToken;
 use Cortex\Foundation\Http\Middleware\SetAuthDefaults;
@@ -30,9 +34,21 @@ return function () {
     // Append middleware to the 'web' middleware group
     Route::pushMiddlewareToGroup('web', CreateFreshApiToken::class);
 
-    // Alias route middleware on the fly
+    // Add route middleware aliases on the fly
     Route::aliasMiddleware('scopes', CheckScopes::class);
     Route::aliasMiddleware('scope', CheckForAnyScope::class);
     Route::aliasMiddleware('client', CheckClientCredentials::class);
     Route::aliasMiddleware('clients', CheckClientCredentialsForAnyScope::class);
+
+    // Map relations
+    Relation::morphMap([
+        'client' => config('rinvex.oauth.models.client'),
+        'auth_code' => config('rinvex.oauth.models.auth_code'),
+        'access_token' => config('rinvex.oauth.models.access_token'),
+        'refresh_token' => config('rinvex.oauth.models.refresh_token'),
+    ]);
+
+    RateLimiter::for('api', function (Request $request) {
+        return Limit::perMinute(60)->by(optional($request->user())->getAuthIdentifier() ?: $request->ip());
+    });
 };
