@@ -49,6 +49,6 @@ return function () {
     ]);
 
     RateLimiter::for('api', function (Request $request) {
-        return Limit::perMinute(60)->by(optional($request->user())->getAuthIdentifier() ?: $request->ip());
+        return Limit::perMinute(60)->by($request->user()?->getAuthIdentifier() ?: $request->ip());
     });
 };
