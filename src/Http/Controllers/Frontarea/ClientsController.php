@@ -34,6 +34,7 @@ class ClientsController extends AuthorizedController
         return $clientsDataTable->with([
             'show_user' => false,
             'id' => 'frontarea-cortex-oauth-clients-index',
+            'routePrefix' => 'frontarea.cortex.oauth.clients',
             'pusher' => ['entity' => 'client', 'channel' => 'cortex.oauth.clients.index'],
         ])->render('cortex/foundation::frontarea.pages.datatable-index');
     }
