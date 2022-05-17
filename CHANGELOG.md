@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.2.2] - 2022-05-17
+- Add support for menu list item attributes
+
 ## [v3.2.1] - 2022-03-12
 - Update composer dependency codedungeon/phpunit-result-printer
 - Add datatables routePrefix support
@@ -135,6 +138,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v3.2.2]: https://github.com/rinvex/cortex-oauth/compare/v3.2.1...v3.2.2
 [v3.2.1]: https://github.com/rinvex/cortex-oauth/compare/v3.2.0...v3.2.1
 [v3.2.0]: https://github.com/rinvex/cortex-oauth/compare/v3.1.2...v3.2.0
 [v3.1.2]: https://github.com/rinvex/cortex-oauth/compare/v3.1.1...v3.1.2
