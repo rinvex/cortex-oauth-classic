@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cortex\Oauth\DataTables\Frontarea;
 
 use Cortex\Oauth\Models\Client;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Database\Eloquent\Builder;
 use Cortex\Oauth\Scopes\ResourceUserScope;
 use Cortex\Oauth\Transformers\ClientTransformer;
@@ -82,7 +83,7 @@ class ClientsDataTable extends AbstractDataTable
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function ajax()
+    public function ajax(): JsonResponse
     {
         return datatables($this->query())
             ->setTransformer(app($this->transformer))
