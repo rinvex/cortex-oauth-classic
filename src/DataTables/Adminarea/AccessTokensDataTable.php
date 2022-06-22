@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cortex\Oauth\DataTables\Adminarea;
 
+use Illuminate\Http\JsonResponse;
 use Cortex\Oauth\Models\AccessToken;
 use Illuminate\Database\Eloquent\Builder;
 use Cortex\Foundation\DataTables\AbstractDataTable;
@@ -84,7 +85,7 @@ class AccessTokensDataTable extends AbstractDataTable
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function ajax()
+    public function ajax(): JsonResponse
     {
         return datatables($this->query())
             ->setTransformer(app($this->transformer))
