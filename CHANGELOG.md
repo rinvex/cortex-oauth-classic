@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.2.4] - 2022-06-22
+- Fix datatables ajax method signature
+
 ## [v3.2.3] - 2022-06-20
 - Update composer dependencies
   - league/fractal to ^0.20.0 from ^0.19.0
@@ -146,6 +149,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v3.2.4]: https://github.com/rinvex/cortex-oauth/compare/v3.2.3...v3.2.4
 [v3.2.3]: https://github.com/rinvex/cortex-oauth/compare/v3.2.2...v3.2.3
 [v3.2.2]: https://github.com/rinvex/cortex-oauth/compare/v3.2.1...v3.2.2
 [v3.2.1]: https://github.com/rinvex/cortex-oauth/compare/v3.2.0...v3.2.1
