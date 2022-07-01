@@ -17,7 +17,7 @@ class AuthCodeTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $defaultIncludes = [
+    protected array $defaultIncludes = [
         'client',
         'user',
     ];

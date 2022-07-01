@@ -17,7 +17,7 @@ class ClientTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $defaultIncludes = [
+    protected array $defaultIncludes = [
         'user',
     ];
 
