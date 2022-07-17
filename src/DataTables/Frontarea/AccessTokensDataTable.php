@@ -33,7 +33,7 @@ class AccessTokensDataTable extends AbstractDataTable
         'import' => false,
         'print' => false,
         'export' => false,
-        'bulkRevoke' => true,
+        'revoke' => true,
     ];
 
     /**
