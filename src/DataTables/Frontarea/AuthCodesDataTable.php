@@ -42,7 +42,7 @@ class AuthCodesDataTable extends AbstractDataTable
     protected function getColumns(): array
     {
         return [
-            'id' => ['checkboxes' => '{"selectRow": true}', 'exportable' => false, 'printable' => false],
+            'id' => ['checkboxes' => json_decode('{"selectRow": true}'), 'exportable' => false, 'printable' => false],
             'identifier' => ['title' => trans('cortex/oauth::common.id'), 'data' => 'id', 'responsivePriority' => 0],
             'user' => ['title' => trans('cortex/oauth::common.user'), 'render' => $this->getUserLink(), 'visible' => $this->attributes['show_user'] ?? true],
             'client' => ['title' => trans('cortex/oauth::common.client'), 'render' => $this->getClientLink(), 'visible' => $this->attributes['show_client'] ?? true],
