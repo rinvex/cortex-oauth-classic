@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.2.6] - 2022-07-24
+- Fix datatables checkbox select-row options
+- Add missing export ability
+- Refactor datatables bulk actions and check if action is enabled and authorized
+
 ## [v3.2.5] - 2022-07-02
 - Fix transformer compatibility with fractal
 
@@ -152,6 +157,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v3.2.6]: https://github.com/rinvex/cortex-oauth/compare/v3.2.5...v3.2.6
 [v3.2.5]: https://github.com/rinvex/cortex-oauth/compare/v3.2.4...v3.2.5
 [v3.2.4]: https://github.com/rinvex/cortex-oauth/compare/v3.2.3...v3.2.4
 [v3.2.3]: https://github.com/rinvex/cortex-oauth/compare/v3.2.2...v3.2.3
