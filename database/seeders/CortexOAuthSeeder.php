@@ -25,16 +25,19 @@ class CortexOAuthSeeder extends Seeder
 
             ['name' => 'list', 'title' => 'List Auth Codes', 'entity_type' => 'auth_code'],
             ['name' => 'import', 'title' => 'Import Auth Codes', 'entity_type' => 'auth_code'],
+            ['name' => 'export', 'title' => 'Export Auth Codes', 'entity_type' => 'auth_code'],
             ['name' => 'create', 'title' => 'Create Auth Codes', 'entity_type' => 'auth_code'],
             ['name' => 'delete', 'title' => 'Delete Auth Codes', 'entity_type' => 'auth_code'],
 
             ['name' => 'list', 'title' => 'List Access Tokens', 'entity_type' => 'access_token'],
             ['name' => 'import', 'title' => 'Import Access Tokens', 'entity_type' => 'access_token'],
+            ['name' => 'export', 'title' => 'Export Access Tokens', 'entity_type' => 'access_token'],
             ['name' => 'create', 'title' => 'Create Access Tokens', 'entity_type' => 'access_token'],
             ['name' => 'delete', 'title' => 'Delete Access Tokens', 'entity_type' => 'access_token'],
 
             ['name' => 'list', 'title' => 'List Refresh Tokens', 'entity_type' => 'refresh_token'],
             ['name' => 'import', 'title' => 'Import Refresh Tokens', 'entity_type' => 'refresh_token'],
+            ['name' => 'export', 'title' => 'Export Refresh Tokens', 'entity_type' => 'refresh_token'],
             ['name' => 'create', 'title' => 'Create Refresh Tokens', 'entity_type' => 'refresh_token'],
             ['name' => 'delete', 'title' => 'Delete Refresh Tokens', 'entity_type' => 'refresh_token'],
 

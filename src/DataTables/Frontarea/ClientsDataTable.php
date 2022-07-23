@@ -32,7 +32,7 @@ class ClientsDataTable extends AbstractDataTable
         'import' => false,
         'print' => false,
         'export' => false,
-        'bulkRevoke' => true,
+        'revoke' => true,
     ];
 
     /**
@@ -43,7 +43,7 @@ class ClientsDataTable extends AbstractDataTable
     protected function getColumns(): array
     {
         return [
-            'id' => ['checkboxes' => '{"selectRow": true}', 'exportable' => false, 'printable' => false],
+            'id' => ['checkboxes' => json_decode('{"selectRow": true}'), 'exportable' => false, 'printable' => false],
             'identifier' => ['title' => trans('cortex/oauth::common.id'), 'data' => 'id'],
             'name' => ['title' => trans('cortex/oauth::common.name'), 'render' => $this->getClientLink(), 'responsivePriority' => 0],
             'user' => ['title' => trans('cortex/oauth::common.user'), 'render' => $this->getUserLink(), 'orderable' => false, 'printable' => false, 'exportable' => false, 'visible' => $this->attributes['show_user'] ?? true],
