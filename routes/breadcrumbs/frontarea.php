@@ -7,7 +7,7 @@ use Diglactic\Breadcrumbs\Generator;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 
 Breadcrumbs::for('frontarea.cortex.oauth.clients.index', function (Generator $breadcrumbs) {
-    $breadcrumbs->push('<i class="fa fa-dashboard"></i> '.config('app.name'), route('frontarea.home'));
+    $breadcrumbs->parent('frontarea.home');
     $breadcrumbs->push(trans('cortex/oauth::common.clients'), route('frontarea.cortex.oauth.clients.index'));
 });
 

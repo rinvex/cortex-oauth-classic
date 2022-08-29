@@ -64,7 +64,7 @@ Breadcrumbs::for('adminarea.cortex.auth.members.access_tokens', function (Genera
 });
 
 Breadcrumbs::for('adminarea.cortex.oauth.clients.index', function (Generator $breadcrumbs) {
-    $breadcrumbs->push('<i class="fa fa-dashboard"></i> '.config('app.name'), route('adminarea.home'));
+    $breadcrumbs->parent('adminarea.home');
     $breadcrumbs->push(trans('cortex/oauth::common.clients'), route('adminarea.cortex.oauth.clients.index'));
 });
 
