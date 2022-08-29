@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.2.7] - 2022-08-30
+- Clean the breadcrumbs definition and utilize parent features
+
 ## [v3.2.6] - 2022-07-24
 - Fix datatables checkbox select-row options
 - Add missing export ability
@@ -157,6 +160,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v3.2.7]: https://github.com/rinvex/cortex-oauth/compare/v3.2.6...v3.2.7
 [v3.2.6]: https://github.com/rinvex/cortex-oauth/compare/v3.2.5...v3.2.6
 [v3.2.5]: https://github.com/rinvex/cortex-oauth/compare/v3.2.4...v3.2.5
 [v3.2.4]: https://github.com/rinvex/cortex-oauth/compare/v3.2.3...v3.2.4
