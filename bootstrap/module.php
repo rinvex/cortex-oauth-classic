@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
 use Rinvex\Oauth\Http\Middleware\CheckScopes;
+use Cortex\Auth\Http\Middleware\SetAuthDefaults;
 use Rinvex\Oauth\Http\Middleware\CheckForAnyScope;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Rinvex\Oauth\Http\Middleware\CreateFreshApiToken;
-use Cortex\Foundation\Http\Middleware\SetAuthDefaults;
 use Rinvex\Oauth\Http\Middleware\CheckClientCredentials;
 use Rinvex\Oauth\Http\Middleware\CheckClientCredentialsForAnyScope;
 
