@@ -110,6 +110,7 @@ class AccessTokensDataTable extends AbstractDataTable
                     $builder->where('name', 'like', "%{$keyword}%");
                 });
             })
+            ->whitelist(array_keys($this->getColumns()))
             ->make(true);
     }
 }

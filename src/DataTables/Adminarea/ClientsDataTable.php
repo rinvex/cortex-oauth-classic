@@ -92,6 +92,7 @@ class ClientsDataTable extends AbstractDataTable
                     $builder->where('username', 'like', "%{$keyword}%");
                 });
             })
+            ->whitelist(array_keys($this->getColumns()))
             ->make(true);
     }
 }
