@@ -21,7 +21,7 @@ class ClientsController extends AuthorizedController
     protected $resource = 'rinvex.oauth.models.client';
 
     /**
-     * Get all of the clients for the authenticated user.
+     * Get all clients for the authenticated user.
      *
      * @TODO: Add missing pusher to all needed datatables below.
      *
@@ -40,7 +40,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the auth codes for the given client.
+     * Get all auth codes for the given client.
      *
      * @param \Cortex\Oauth\DataTables\Frontarea\AuthCodesDataTable $clientsDataTable
      *
@@ -56,7 +56,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the access tokens for the given client.
+     * Get all access tokens for the given client.
      *
      * @param \Cortex\Oauth\DataTables\Frontarea\AccessTokensDataTable $accessTokensDataTable
      *

@@ -24,7 +24,7 @@ class ClientsController extends AuthorizedController
     protected $resource = 'rinvex.oauth.models.client';
 
     /**
-     * Get all of the clients for the authenticated user.
+     * Get all clients for the authenticated user.
      *
      * @TODO: Add missing pusher to all needed datatables below.
      *
@@ -42,7 +42,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the auth codes for the given client.
+     * Get all auth codes for the given client.
      *
      * @param \Cortex\Oauth\DataTables\Adminarea\AuthCodesDataTable $clientsDataTable
      *
@@ -58,7 +58,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the access tokens for the given client.
+     * Get all access tokens for the given client.
      *
      * @param \Cortex\Oauth\DataTables\Adminarea\AccessTokensDataTable $accessTokensDataTable
      *
@@ -74,7 +74,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the clients for the given user.
+     * Get all clients for the given user.
      *
      * @param \Cortex\Oauth\DataTables\Adminarea\ClientsDataTable $clientsDataTable
      *
@@ -94,7 +94,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the auth codes for the given user.
+     * Get all auth codes for the given user.
      *
      * @param \Cortex\Auth\Models\User                              $user
      * @param \Cortex\Oauth\DataTables\Adminarea\AuthCodesDataTable $authCodesDataTable
@@ -115,7 +115,7 @@ class ClientsController extends AuthorizedController
     }
 
     /**
-     * Get all of the access tokens for the given user.
+     * Get all access tokens for the given user.
      *
      * @param \Cortex\Auth\Models\User                                 $user
      * @param \Cortex\Oauth\DataTables\Adminarea\AccessTokensDataTable $accessTokensDataTable
