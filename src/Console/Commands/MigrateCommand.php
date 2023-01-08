@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Cortex\Oauth\Console\Commands;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Rinvex\Oauth\Console\Commands\MigrateCommand as BaseMigrateCommand;
 
+#[AsCommand(name: 'cortex:migrate:oauth')]
 class MigrateCommand extends BaseMigrateCommand
 {
     /**
