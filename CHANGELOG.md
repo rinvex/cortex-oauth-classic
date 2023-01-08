@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v4.0.0] - 2023-01-09
+- Drop PHP v8.0 support and update composer dependencies
+- Move Relation::morphMap to vendor core package
+- Utilize PHP 8.1 attributes feature for artisan commands
+
 ## [v3.2.9] - 2022-12-30
 - Whitelist datatable columns to avoid invalid columns sent from client-side which might be a security issue in some scenarios
 
@@ -166,6 +171,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v4.0.0]: https://github.com/rinvex/cortex-oauth/compare/v3.2.9...v4.0.0
 [v3.2.9]: https://github.com/rinvex/cortex-oauth/compare/v3.2.8...v3.2.9
 [v3.2.8]: https://github.com/rinvex/cortex-oauth/compare/v3.2.7...v3.2.8
 [v3.2.7]: https://github.com/rinvex/cortex-oauth/compare/v3.2.6...v3.2.7

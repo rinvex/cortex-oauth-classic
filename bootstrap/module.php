@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\RateLimiter;
 use Rinvex\Oauth\Http\Middleware\CheckScopes;
 use Cortex\Auth\Http\Middleware\SetAuthDefaults;
 use Rinvex\Oauth\Http\Middleware\CheckForAnyScope;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Rinvex\Oauth\Http\Middleware\CreateFreshApiToken;
 use Rinvex\Oauth\Http\Middleware\CheckClientCredentials;
@@ -39,14 +38,6 @@ return function () {
     Route::aliasMiddleware('scope', CheckForAnyScope::class);
     Route::aliasMiddleware('client', CheckClientCredentials::class);
     Route::aliasMiddleware('clients', CheckClientCredentialsForAnyScope::class);
-
-    // Map relations
-    Relation::morphMap([
-        'client' => config('rinvex.oauth.models.client'),
-        'auth_code' => config('rinvex.oauth.models.auth_code'),
-        'access_token' => config('rinvex.oauth.models.access_token'),
-        'refresh_token' => config('rinvex.oauth.models.refresh_token'),
-    ]);
 
     RateLimiter::for('api', function (Request $request) {
         return Limit::perMinute(60)->by($request->user()?->getAuthIdentifier() ?: $request->ip());

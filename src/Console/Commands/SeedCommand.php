@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Cortex\Oauth\Console\Commands;
 
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Cortex\Oauth\Database\Seeders\CortexOAuthSeeder;
 
+#[AsCommand(name: 'cortex:seed:oauth')]
 class SeedCommand extends Command
 {
     /**

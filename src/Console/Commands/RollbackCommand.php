@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Cortex\Oauth\Console\Commands;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Rinvex\Oauth\Console\Commands\RollbackCommand as BaseRollbackCommand;
 
+#[AsCommand(name: 'cortex:rollback:oauth')]
 class RollbackCommand extends BaseRollbackCommand
 {
     /**
