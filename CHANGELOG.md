@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v4.0.1] - 2023-01-10
+- Fix user identifier to be like that 'admin:123' where admin is user_type & 123 is user_id
+
 ## [v4.0.0] - 2023-01-09
 - Drop PHP v8.0 support and update composer dependencies
 - Move Relation::morphMap to vendor core package
@@ -171,6 +174,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v4.0.1]: https://github.com/rinvex/cortex-oauth/compare/4.0.0...v4.0.1
 [v4.0.0]: https://github.com/rinvex/cortex-oauth/compare/v3.2.9...v4.0.0
 [v3.2.9]: https://github.com/rinvex/cortex-oauth/compare/v3.2.8...v3.2.9
 [v3.2.8]: https://github.com/rinvex/cortex-oauth/compare/v3.2.7...v3.2.8
