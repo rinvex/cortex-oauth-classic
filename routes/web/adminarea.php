@@ -9,11 +9,9 @@ Route::domain('{adminarea}')->group(function () {
     Route::name('adminarea.')
          ->middleware(['web', 'nohttpcache', 'can:access-adminarea'])
          ->prefix(route_prefix('adminarea'))->group(function () {
-
-            // Register OAuth Routes
+             // Register OAuth Routes
              Route::name('cortex.oauth.')->group(function () {
-
-                // Authorization process
+                 // Authorization process
                  Route::prefix('oauth')->group(function () {
                      Route::get('authorize')->name('authorize')->uses([AuthorizationController::class, 'authorizeRequest']);
                      Route::post('authorize')->name('approve')->uses([AuthorizationController::class, 'approve']);
@@ -35,8 +33,7 @@ Route::domain('{adminarea}')->group(function () {
              });
 
              Route::name('cortex.auth.')->group(function () {
-
-                // Admin clients Routes
+                 // Admin clients Routes
                  Route::name('admins.')->prefix('admins')->group(function () {
                      Route::get('{admin}/clients')->name('clients')->uses([ClientsController::class, 'clientsForUser']);
                      Route::get('{admin}/auth-codes')->name('auth_codes')->uses([ClientsController::class, 'authCodesForUser']);
