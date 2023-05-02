@@ -6,16 +6,16 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
 ## [v4.1.0] - 2023-05-02
-aa4bc91 - Add support for Laravel v11, and drop support for Laravel v9
-6d5e610 - Upgrade league/oauth2-server to v8.5 from v8.3
-45d0eff - Upgrade nyholm/psr7 to v1.7 from v1.5
-acb5737 - Upgrade yajra/laravel-datatables-oracle to v10.4 from v10.0
-c11eb54 - Upgrade yajra/laravel-datatables-html to v10.0 from v9.0
-327b1dd - Upgrade yajra/laravel-datatables-buttons to v10.0 from v9.0
-ca80c22 - Upgrade proengsoft/laravel-jsvalidation to v4.8 from v4.7
-fd0bcf6 - Upgrade spatie/laravel-activitylog to v4.7 from v4.4
-7a6fc50 - Update yajra/laravel-datatables-fractal to v10.0 from v9.0
-450163c - Update phpunit to v10.1 from v9.5
+- aa4bc91: Add support for Laravel v11, and drop support for Laravel v9
+- 6d5e610: Upgrade league/oauth2-server to v8.5 from v8.3
+- 45d0eff: Upgrade nyholm/psr7 to v1.7 from v1.5
+- acb5737: Upgrade yajra/laravel-datatables-oracle to v10.4 from v10.0
+- c11eb54: Upgrade yajra/laravel-datatables-html to v10.0 from v9.0
+- 327b1dd: Upgrade yajra/laravel-datatables-buttons to v10.0 from v9.0
+- ca80c22: Upgrade proengsoft/laravel-jsvalidation to v4.8 from v4.7
+- fd0bcf6: Upgrade spatie/laravel-activitylog to v4.7 from v4.4
+- 7a6fc50: Update yajra/laravel-datatables-fractal to v10.0 from v9.0
+- 450163c: Update phpunit to v10.1 from v9.5
 
 ## [v4.0.1] - 2023-01-10
 - Fix user identifier to be like that 'admin:123' where admin is user_type & 123 is user_id
