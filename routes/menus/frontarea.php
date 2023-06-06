@@ -5,11 +5,9 @@ declare(strict_types=1);
 use Cortex\Oauth\Models\Client;
 use Rinvex\Menus\Models\MenuGenerator;
 
-if ($user = request()->user()) {
-    Menu::register('frontarea.cortex.auth.account.sidebar', function (MenuGenerator $menu) {
-        $menu->route(['frontarea.cortex.oauth.clients.index'], trans('cortex/oauth::common.clients'), null, 'fa fa-user')->activateOnRoute('frontarea.cortex.oauth.clients');
-    });
-}
+Menu::register('frontarea.cortex.auth.account.sidebar', function (MenuGenerator $menu) {
+    $menu->route(['frontarea.cortex.oauth.clients.index'], trans('cortex/oauth::common.clients'), null, 'fa fa-user')->activateOnRoute('frontarea.cortex.oauth.clients');
+});
 
 Menu::register('frontarea.cortex.oauth.clients.tabs', function (MenuGenerator $menu, Client $client) {
     $menu->route(['frontarea.cortex.oauth.clients.create'], trans('cortex/oauth::common.create_client'))->if(Route::is('frontarea.cortex.oauth.clients.create'));
