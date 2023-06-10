@@ -27,16 +27,11 @@ class OAuthServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Bind eloquent models to IoC container
-        $this->app['config']['rinvex.oauth.models.client'] === Client::class
-        || $this->app->alias('rinvex.oauth.client', Client::class);
-
-        $this->app['config']['rinvex.oauth.models.auth_code'] === AuthCode::class
-        || $this->app->alias('rinvex.oauth.auth_code', AuthCode::class);
-
-        $this->app['config']['rinvex.oauth.models.access_token'] === AccessToken::class
-        || $this->app->alias('rinvex.oauth.access_token', AccessToken::class);
-
-        $this->app['config']['rinvex.oauth.models.refresh_token'] === RefreshToken::class
-        || $this->app->alias('rinvex.oauth.refresh_token', RefreshToken::class);
+        $this->registerModels([
+            'rinvex.oauth.client' => Client::class,
+            'rinvex.oauth.auth_code' => AuthCode::class,
+            'rinvex.oauth.access_token' => AccessToken::class,
+            'rinvex.oauth.refresh_token' => RefreshToken::class,
+        ]);
     }
 }
