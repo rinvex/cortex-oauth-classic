@@ -9,10 +9,8 @@ Route::domain('{frontarea}')->group(function () {
     Route::name('frontarea.')
          ->middleware(['web', 'auth'])
          ->prefix(route_prefix('frontarea'))->group(function () {
-
              // Register OAuth Routes
              Route::name('cortex.oauth.')->group(function () {
-
                  // Authorization process
                  Route::prefix('oauth')->group(function () {
                      Route::get('authorize')->name('authorize')->uses([AuthorizationController::class, 'authorizeRequest']);
