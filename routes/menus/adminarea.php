@@ -9,7 +9,7 @@ use Rinvex\Menus\Models\MenuItem;
 use Rinvex\Menus\Models\MenuGenerator;
 
 Menu::register('adminarea.sidebar', function (MenuGenerator $menu) {
-    $menu->findByTitleOrAdd(trans('cortex/oauth::common.oauth'), 10, 'fa fa-lock', 'header', [], [], function (MenuItem $dropdown) {
+    $menu->findByTitleOrAdd(trans('cortex/oauth::common.oauth'), 60, 'fa fa-lock', 'header', [], [], function (MenuItem $dropdown) {
         $dropdown->route(['adminarea.cortex.oauth.clients.index'], trans('cortex/oauth::common.clients'), 10, 'fa fa-user')->ifCan('list', app('rinvex.oauth.client'))->activateOnRoute('adminarea.cortex.oauth.clients');
     });
 });
