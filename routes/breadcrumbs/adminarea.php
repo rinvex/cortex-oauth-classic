@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Cortex\Auth\Models\Admin;
 use Cortex\Auth\Models\Member;
-use Cortex\Auth\Models\Manager;
 use Cortex\Oauth\Models\Client;
 use Diglactic\Breadcrumbs\Generator;
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -25,24 +24,6 @@ Breadcrumbs::for('adminarea.cortex.auth.admins.access_tokens', function (Generat
     $breadcrumbs->parent('adminarea.cortex.auth.admins.index');
     $breadcrumbs->push(strip_tags($admin->username), route('adminarea.cortex.auth.admins.edit', ['admin' => $admin]));
     $breadcrumbs->push(trans('cortex/oauth::common.access_tokens'), route('adminarea.cortex.auth.admins.access_tokens', ['admin' => $admin]));
-});
-
-Breadcrumbs::for('adminarea.cortex.auth.managers.clients', function (Generator $breadcrumbs, Manager $manager) {
-    $breadcrumbs->parent('adminarea.cortex.auth.managers.index');
-    $breadcrumbs->push(strip_tags($manager->username), route('adminarea.cortex.auth.managers.edit', ['manager' => $manager]));
-    $breadcrumbs->push(trans('cortex/oauth::common.clients'), route('adminarea.cortex.auth.managers.clients', ['manager' => $manager]));
-});
-
-Breadcrumbs::for('adminarea.cortex.auth.managers.auth_codes', function (Generator $breadcrumbs, Manager $manager) {
-    $breadcrumbs->parent('adminarea.cortex.auth.managers.index');
-    $breadcrumbs->push(strip_tags($manager->username), route('adminarea.cortex.auth.managers.edit', ['manager' => $manager]));
-    $breadcrumbs->push(trans('cortex/oauth::common.auth_codes'), route('adminarea.cortex.auth.managers.auth_codes', ['manager' => $manager]));
-});
-
-Breadcrumbs::for('adminarea.cortex.auth.managers.access_tokens', function (Generator $breadcrumbs, Manager $manager) {
-    $breadcrumbs->parent('adminarea.cortex.auth.managers.index');
-    $breadcrumbs->push(strip_tags($manager->username), route('adminarea.cortex.auth.managers.edit', ['manager' => $manager]));
-    $breadcrumbs->push(trans('cortex/oauth::common.access_tokens'), route('adminarea.cortex.auth.managers.access_tokens', ['manager' => $manager]));
 });
 
 Breadcrumbs::for('adminarea.cortex.auth.members.clients', function (Generator $breadcrumbs, Member $member) {

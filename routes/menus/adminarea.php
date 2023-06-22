@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Cortex\Auth\Models\Admin;
 use Cortex\Auth\Models\Member;
-use Cortex\Auth\Models\Manager;
 use Cortex\Oauth\Models\Client;
 use Rinvex\Menus\Models\MenuItem;
 use Rinvex\Menus\Models\MenuGenerator;
@@ -19,12 +18,6 @@ Menu::register('adminarea.cortex.auth.admins.tabs', function (MenuGenerator $men
     $menu->route(['adminarea.cortex.auth.admins.clients', ['admin' => $admin]], trans('cortex/oauth::common.clients'))->ifCan('list', app('rinvex.oauth.client'))->if($admin->exists);
     $menu->route(['adminarea.cortex.auth.admins.auth_codes', ['admin' => $admin]], trans('cortex/oauth::common.auth_codes'))->ifCan('list', app('rinvex.oauth.auth_code'))->if($admin->exists);
     $menu->route(['adminarea.cortex.auth.admins.access_tokens', ['admin' => $admin]], trans('cortex/oauth::common.access_tokens'))->ifCan('list', app('rinvex.oauth.access_token'))->if($admin->exists);
-});
-
-Menu::register('adminarea.cortex.auth.managers.tabs', function (MenuGenerator $menu, Manager $manager) {
-    $menu->route(['adminarea.cortex.auth.managers.clients', ['manager' => $manager]], trans('cortex/oauth::common.clients'))->ifCan('list', app('rinvex.oauth.client'))->if($manager->exists);
-    $menu->route(['adminarea.cortex.auth.managers.auth_codes', ['manager' => $manager]], trans('cortex/oauth::common.auth_codes'))->ifCan('list', app('rinvex.oauth.auth_code'))->if($manager->exists);
-    $menu->route(['adminarea.cortex.auth.managers.access_tokens', ['manager' => $manager]], trans('cortex/oauth::common.access_tokens'))->ifCan('list', app('rinvex.oauth.access_token'))->if($manager->exists);
 });
 
 Menu::register('adminarea.cortex.auth.members.tabs', function (MenuGenerator $menu, Member $member) {

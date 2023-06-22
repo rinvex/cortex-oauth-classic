@@ -28,18 +28,6 @@ Broadcast::channel('cortex.auth.admins.access_tokens', function (Authorizable $u
     return $user->can('list', app('rinvex.oauth.access_token'));
 });
 
-Broadcast::channel('cortex.auth.manager.index', function (Authorizable $user) {
-    return $user->can('list', app('rinvex.oauth.client'));
-});
-
-Broadcast::channel('cortex.auth.manager.auth_codes', function (Authorizable $user) {
-    return $user->can('list', app('rinvex.oauth.auth_code'));
-});
-
-Broadcast::channel('cortex.auth.manager.access_tokens', function (Authorizable $user) {
-    return $user->can('list', app('rinvex.oauth.access_token'));
-});
-
 Broadcast::channel('cortex.auth.members.index', function (Authorizable $user) {
     return $user->can('list', app('rinvex.oauth.client'));
 });
