@@ -43,13 +43,6 @@ Route::domain('{adminarea}')->group(function () {
                      Route::get('{admin}/access-tokens')->name('access_tokens')->uses([ClientsController::class, 'accessTokensForUser']);
                  });
 
-                 // Manager clients Routes
-                 Route::name('managers.')->prefix('managers')->group(function () {
-                     Route::get('{manager}/clients')->name('clients')->uses([ClientsController::class, 'clientsForUser']);
-                     Route::get('{manager}/auth-codes')->name('auth_codes')->uses([ClientsController::class, 'authCodesForUser']);
-                     Route::get('{manager}/access-tokens')->name('access_tokens')->uses([ClientsController::class, 'accessTokensForUser']);
-                 });
-
                  // Member clients Routes
                  Route::name('members.')->prefix('members')->group(function () {
                      Route::get('{member}/clients')->name('clients')->uses([ClientsController::class, 'clientsForUser']);

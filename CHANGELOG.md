@@ -5,17 +5,26 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v4.2.0] - 2023-06-23
+- Update oauth adminarea menu order
+- Fix oauth scopes comparison
+- Fix oauth clients broadcast channel name
+- Split tenancy features to a separate module extension
+- Improve eloquent models IoC container binding
+- Remove useless condition on member account sidebar
+- Fix changelog format
+
 ## [v4.1.0] - 2023-05-02
-aa4bc91 - Add support for Laravel v11, and drop support for Laravel v9
-6d5e610 - Upgrade league/oauth2-server to v8.5 from v8.3
-45d0eff - Upgrade nyholm/psr7 to v1.7 from v1.5
-acb5737 - Upgrade yajra/laravel-datatables-oracle to v10.4 from v10.0
-c11eb54 - Upgrade yajra/laravel-datatables-html to v10.0 from v9.0
-327b1dd - Upgrade yajra/laravel-datatables-buttons to v10.0 from v9.0
-ca80c22 - Upgrade proengsoft/laravel-jsvalidation to v4.8 from v4.7
-fd0bcf6 - Upgrade spatie/laravel-activitylog to v4.7 from v4.4
-7a6fc50 - Update yajra/laravel-datatables-fractal to v10.0 from v9.0
-450163c - Update phpunit to v10.1 from v9.5
+- Add support for Laravel v11, and drop support for Laravel v9
+- Upgrade league/oauth2-server to v8.5 from v8.3
+- Upgrade nyholm/psr7 to v1.7 from v1.5
+- Upgrade yajra/laravel-datatables-oracle to v10.4 from v10.0
+- Upgrade yajra/laravel-datatables-html to v10.0 from v9.0
+- Upgrade yajra/laravel-datatables-buttons to v10.0 from v9.0
+- Upgrade proengsoft/laravel-jsvalidation to v4.8 from v4.7
+- Upgrade spatie/laravel-activitylog to v4.7 from v4.4
+- Update yajra/laravel-datatables-fractal to v10.0 from v9.0
+- Update phpunit to v10.1 from v9.5
 
 ## [v4.0.1] - 2023-01-10
 - Fix user identifier to be like that 'admin:123' where admin is user_type & 123 is user_id
@@ -186,6 +195,7 @@ fd0bcf6 - Upgrade spatie/laravel-activitylog to v4.7 from v4.4
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v4.2.0]: https://github.com/rinvex/cortex-oauth/compare/4.1.0...v4.2.0
 [v4.1.0]: https://github.com/rinvex/cortex-oauth/compare/4.0.1...v4.1.0
 [v4.0.1]: https://github.com/rinvex/cortex-oauth/compare/4.0.0...v4.0.1
 [v4.0.0]: https://github.com/rinvex/cortex-oauth/compare/v3.2.9...v4.0.0
