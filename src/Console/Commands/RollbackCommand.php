@@ -32,12 +32,13 @@ class RollbackCommand extends BaseRollbackCommand
     public function handle(): void
     {
         $path = config('cortex.oauth.autoload_migrations') ?
-            'app/cortex/oauth/database/migrations' :
-            'database/migrations/cortex/oauth';
+            realpath(__DIR__.'/../../../database/migrations') :
+            $this->laravel->databasePath('migrations/cortex/oauth');
 
         if (file_exists($path)) {
             $this->call('migrate:reset', [
                 '--path' => $path,
+                '--realpath' => true,
                 '--force' => $this->option('force'),
             ]);
         } else {

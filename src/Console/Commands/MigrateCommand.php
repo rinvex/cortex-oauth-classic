@@ -34,13 +34,14 @@ class MigrateCommand extends BaseMigrateCommand
         parent::handle();
 
         $path = config('cortex.oauth.autoload_migrations') ?
-            'app/cortex/oauth/database/migrations' :
-            'database/migrations/cortex/oauth';
+            realpath(__DIR__.'/../../../database/migrations') :
+            $this->laravel->databasePath('migrations/cortex/oauth');
 
         if (file_exists($path)) {
             $this->call('migrate', [
                 '--step' => true,
                 '--path' => $path,
+                '--realpath' => true,
                 '--force' => $this->option('force'),
             ]);
         } else {

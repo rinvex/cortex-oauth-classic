@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v4.2.1] - 2023-07-03
+- Fix migration paths
+
 ## [v4.2.0] - 2023-06-23
 - Update oauth adminarea menu order
 - Fix oauth scopes comparison
@@ -195,6 +198,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v4.2.1]: https://github.com/rinvex/cortex-oauth/compare/4.2.0...v4.2.1
 [v4.2.0]: https://github.com/rinvex/cortex-oauth/compare/4.1.0...v4.2.0
 [v4.1.0]: https://github.com/rinvex/cortex-oauth/compare/4.0.1...v4.1.0
 [v4.0.1]: https://github.com/rinvex/cortex-oauth/compare/4.0.0...v4.0.1
