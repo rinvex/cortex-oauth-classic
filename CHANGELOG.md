@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v4.2.3] - 2023-08-17
+- Seed the new 'view' ability
+
 ## [v4.2.2] - 2023-07-03
 - Update composer dependencies
 - Apply fixes from StyleCI (#51)
@@ -202,6 +205,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2020-12-12
 - Tag first release
 
+[v4.2.3]: https://github.com/rinvex/cortex-oauth/compare/4.2.2...v4.2.3
 [v4.2.2]: https://github.com/rinvex/cortex-oauth/compare/4.2.1...v4.2.2
 [v4.2.1]: https://github.com/rinvex/cortex-oauth/compare/4.2.0...v4.2.1
 [v4.2.0]: https://github.com/rinvex/cortex-oauth/compare/4.1.0...v4.2.0
